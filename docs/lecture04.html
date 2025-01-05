@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <meta name="referrer" content="no-referrer" />
+
+    <script>
+      MathJax = {
+        chtml: {
+          displayAlign: "left",
+          displayIndent: "1em",
+        },
+      };
+    </script>
+
+    
+
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>第04回 後期 4H 実験実習</title>
+  </head>
+
+  <body>
+    <div class="openbtn"><span></span><span></span><span></span></div>
+    <nav id="g-nav">
+      <div id="g-nav-list">
+        <!-- ---------------------------------------- -->
+         <ul>
+<li><a href="#目的" id="toc-目的"><span class="toc-section-number">1</span> 目的</a></li>
+<li><a href="#スプレッドシートにおける-apps-script-の有効化"
+id="toc-スプレッドシートにおける-apps-script-の有効化"><span class="toc-section-number">2</span>
+スプレッドシートにおける Apps Script の有効化</a>
+<ul>
+<li><a href="#プロジェクトの管理" id="toc-プロジェクトの管理"><span
+class="toc-section-number">2.1</span> プロジェクトの管理</a></li>
+</ul></li>
+<li><a href="#google-apps-script-の初回実行" id="toc-google-apps-script-の初回実行"><span
+class="toc-section-number">3</span> Google Apps Script の初回実行</a>
+<ul>
+<li><a href="#開発に際しての注意点" id="toc-開発に際しての注意点"><span
+class="toc-section-number">3.1</span> 開発に際しての注意点</a></li>
+<li><a href="#google-apps-script-言語仕様" id="toc-google-apps-script-言語仕様"><span
+class="toc-section-number">3.2</span> Google Apps Script 言語仕様</a></li>
+<li><a href="#演習" id="toc-演習"><span class="toc-section-number">3.3</span> 演習</a></li>
+</ul></li>
+<li><a href="#文の分割" id="toc-文の分割"><span class="toc-section-number">4</span>
+文の分割</a></li>
+<li><a href="#様々なセルの参照方法-単一セル" id="toc-様々なセルの参照方法-単一セル"><span
+class="toc-section-number">5</span> 様々なセルの参照方法 (単一セル)</a></li>
+<li><a href="#セルに対する計算式の書き込み" id="toc-セルに対する計算式の書き込み"><span
+class="toc-section-number">6</span> セルに対する計算式の書き込み</a></li>
+<li><a href="#値の読込みと書き込み" id="toc-値の読込みと書き込み"><span
+class="toc-section-number">7</span> 値の読込みと書き込み</a></li>
+<li><a href="#条件分岐と型の確認" id="toc-条件分岐と型の確認"><span
+class="toc-section-number">8</span> 条件分岐と型の確認</a></li>
+<li><a href="#関数の呼び出しと乱数生成" id="toc-関数の呼び出しと乱数生成"><span
+class="toc-section-number">9</span> 関数の呼び出しと乱数生成</a></li>
+<li><a href="#現在時刻の書き込み" id="toc-現在時刻の書き込み"><span
+class="toc-section-number">10</span> 現在時刻の書き込み</a></li>
+<li><a href="#指定列の末尾に書き込み" id="toc-指定列の末尾に書き込み"><span
+class="toc-section-number">11</span> 指定列の末尾に書き込み</a></li>
+<li><a href="#スプレッドシートのメニューにアイテムを追加"
+id="toc-スプレッドシートのメニューにアイテムを追加"><span class="toc-section-number">12</span>
+スプレッドシートのメニューにアイテムを追加</a></li>
+<li><a href="#指定列の指定行に挿入して書き込み" id="toc-指定列の指定行に挿入して書き込み"><span
+class="toc-section-number">13</span> 指定列の指定行に挿入して書き込み</a></li>
+<li><a href="#http-get-をトリガーとする関数の実行"
+id="toc-http-get-をトリガーとする関数の実行"><span class="toc-section-number">14</span> HTTP GET
+をトリガーとする関数の実行</a>
+<ul>
+<li><a href="#処理の更新" id="toc-処理の更新"><span class="toc-section-number">14.1</span>
+処理の更新</a></li>
+<li><a href="#デプロイのテスト" id="toc-デプロイのテスト"><span
+class="toc-section-number">14.2</span> デプロイのテスト</a></li>
+</ul></li>
+<li><a href="#pythonプログラムからウェブアプリにアクセス"
+id="toc-pythonプログラムからウェブアプリにアクセス"><span class="toc-section-number">15</span>
+Pythonプログラムからウェブアプリにアクセス</a></li>
+<li><a href="#htmlcssウェブアプリにアクセス" id="toc-htmlcssウェブアプリにアクセス"><span
+class="toc-section-number">16</span> HTML/CSSウェブアプリにアクセス</a></li>
+</ul> 
+        <!-- ---------------------------------------- -->
+      </div>
+    </nav>
+
+    <header class="markdown-body">
+      <p>2024-4H 電子機械工学実験実習I (後期) 第04回 講義資料</p>
+      <p>毎週金曜日 5～8時限</p>
+    </header>
+
+    <main class="markdown-body">
+      <!-- ---------------------------------------- -->
+      <h1 data-number="1" id="目的"><span class="header-section-number">1</span> 目的</h1>
+      <p><strong>Googleスプレッドシート</strong> と <strong>Google Apps Script (GAS)</strong>
+      を組み合わせることで、「ウェブアプリ」や「ウェブAPI」のプロトタイプを非常に簡単に構築することができます。このようなウェブアプリは
+      <strong>IoTシステム</strong> を構築する際に役立ちます。ここから3回では　<strong>Google Apps
+      Script (GAS)</strong> の入門的内容について体験的に学びます。</p>
+      <p>Google Apps Script (GAS) とは、Excel における <span class="masked">マクロ機能・VBA (Visual
+      Basic for Applications)</span>
+      に相当するものだと考えてください。つまり「<strong>処理の自動化</strong>」や「<strong>機能拡張</strong>」のために使用されるプログラミング言語になります。</p>
+      <h1 data-number="2" id="スプレッドシートにおける-apps-script-の有効化"><span
+      class="header-section-number">2</span> スプレッドシートにおける Apps Script の有効化</h1>
+      <p><strong>学校標準のGoogleアカウント</strong> で GoogleWorkspace
+      にログインして、Googleスプレッドシートを新規作成して、ファイル名を
+      <code>GasApp01_NN_Name</code> に変更してください
+      (個人アカウントを使用する場合は、以降、すべて読み替えが必要になるので注意してください)。出席番号「3番」の「高専太郎」の場合は
+      <code>GasApp01_03_高専太郎</code> となるはずです。</p>
+      <p>Googleスプレッドシートの上部のメニューから「拡張機能」-「<strong>Apps
+      Script</strong>」を選択してください。ブラウザに新たなタブが起動します。このタブを、以降「<strong>Gasのタブ</strong>」と呼びます。この「<strong>Gasのタブ</strong>」に
+      <span class="masked">Google Apps Script (実質的には JavaScript プログラム)</span>
+      を記述していきます。</p>
+      <figure>
+      <img src="figs/03/gas-01.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      <p>なお、もともとのスプレッドシートを開いていたタブは <span class="masked">閉じないで</span>
+      ください。こちらのタブは、以降「<strong>シートタブ</strong>」と呼びます。</p>
+      <p>Gasのタブの上部の「<strong>無題のプロジェクト</strong>」をクリックして、プロジェクトタイトルを
+      <code>GasApp01_03_高専太郎</code>
+      のように変更します。ここでは「プロジェクトタイトル」と「スプレッドシートの名前」を同じにしていますが、それぞれに別々の名前を設定することもできます。</p>
+      <h2 data-number="2.1" id="プロジェクトの管理"><span class="header-section-number">2.1</span>
+      プロジェクトの管理</h2>
+      <p>上記の手順で作成されたプロジェクトは <a
+      href="https://script.google.com/home">https://script.google.com/home</a> から管理
+      (一覧表示や削除など)
+      ができます。プロジェクトを右クリックして「<strong>コンテナを開く</strong>」を選択すると、プロジェクトに紐づいたスプレッドシートを開くことができます。</p>
+      <h1 data-number="3" id="google-apps-script-の初回実行"><span
+      class="header-section-number">3</span> Google Apps Script の初回実行</h1>
+      <p>「<strong>Gasのタブ</strong>」での作業です。</p>
+      <p>左パネルで <code>コード.gs</code> が選ばれていること (アクティブになっていること)
+      を確認して、エディタ領域に、以下のコード ( <code>writeValue_01</code> 関数の定義)
+      をコピペしてください。自分でコードを記述するときは <span
+      class="masked">「スペルミス」「全角半角 (特にスペース)」</span> に注意してください。</p>
+      <p>なお、もともと書かれている <code>function myFunction() { }</code>
+      は削除します。残していても不具合はありませんが…。</p>
+      <div class="sourceCode" id="cb1"
+      data-caption="アクティブシートのセルA1に「10」を書き込む関数"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">function</span> <span class="fu">writeValue_01</span>() {</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  SpreadsheetApp<span class="op">.</span><span class="fu">getActiveSheet</span>()<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;A1&#39;</span>)<span class="op">.</span><span class="fu">setValue</span>(<span class="dv">10</span>)<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>}</span></code></pre></div>
+      <p>このコードは、SpreadsheetApp モジュールの機能を利用して、</p>
+      <ol type="1">
+      <li>アクティブなシート (現在選択されているシート) の</li>
+      <li><code>A1</code> という「セル参照」が示す範囲 (<strong>Range</strong>) を取得し
+      (<strong>Get</strong>)、</li>
+      <li><code>10</code> という値 (<strong>Value</strong>) をセット (<strong>Set</strong>)
+      せよ</li>
+      </ol>
+      <p>という指示を書いた関数 <code>writeValue_01</code> の定義になります。</p>
+      <p>コードに明らかなエラーがあれば、<span class="masked">当該部分に「波線」が表示</span>
+      されます。例えば</p>
+      <ol type="1">
+      <li><code>getRange('A1').setValue(10)</code> の部分を</li>
+      <li><code>getRange('A1')setValue(10)</code> のように</li>
+      </ol>
+      <p>書き換えてみてください (何が変わっているか気付けますよね？)。</p>
+      <p><code>Ctrl+S</code> もしくは <strong>フロッピーディスクのアイコン</strong>
+      <i class="fa-solid fa-floppy-disk"></i> をクリックして <strong>変更を保存</strong>
+      してください。保存操作せずに<span
+      class="masked">「実行」の操作をしてもコードは機能しません</span>。初心者がよくハマるポイントです、注意してください。</p>
+      <p>なお、未保存の内容を含むファイル (左パネル内) には、次のように <span
+      class="masked">赤丸</span> がつきます。</p>
+      <figure>
+      <img src="figs/03/gas-02.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      <p>保存が完了したら、<strong>実行したい関数を選択してから</strong>
+      (選択すると下図の❶のようになります)、<code>Ctrl+R</code>
+      もしくは「<i class="fa-solid fa-play"></i> 実行」のボタンを押下してください。ショートカットの
+      <code>R</code> は「<strong>Run (実行)</strong>」と覚えてください。</p>
+      <figure>
+      <img src="figs/03/gas-03.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      <p>以下は、新規作成したスプレッドシートで Apps Script を<span
+      class="masked">初回に実行するときのみ</span> に必要となる作業・設定です。</p>
+      <p>次のようなダイアログが表示されるので「<strong>権限を確認</strong>」を選択します
+      (ダイアグラムの外観は、バージョンや環境によって異なる場合があります)。</p>
+      <figure>
+      <img src="figs/03/run-01.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      <p>このスクリプト (プログラミング) を実行する権限者 (アカウント) を選択します。</p>
+      <figure>
+      <img src="figs/03/run-02.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      <p>ダイアログに記載の内容を確認して「<strong>許可</strong>」を選択します。</p>
+      <figure>
+      <img src="figs/03/run-03.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      <p>もとの「<strong>Gasタブ</strong>」に戻り、以下のようなログが表示されます。ログは、上部メニューの「<strong>実行ログ</strong>」のボタンを押下することで表示/非表示を切り替えることができます。</p>
+      <figure>
+      <img src="figs/03/run-04.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      <p>「<strong>シートタブ</strong>」に戻ってみると「セルA1」に <code>10</code>
+      が書き込まれていることが確認できると思います。このように、Google Apps Script (GAS) は <span
+      class="masked">Googleスプレッドシートをはじめ、GoogleWorkspace
+      の各種サービスをプログラムを使って操作すること</span> ができます。</p>
+      <p>「<strong>シートタブ</strong>」で「セルA1」の値を削除し、「<strong>Gasのタブ</strong>」に切り替え、再度
+      <code>Ctrl+R</code>
+      でプログラムを実行してください。2回以降の実行では、権限確認等が表示されないことを確認してください。</p>
+      <h2 data-number="3.1" id="開発に際しての注意点"><span class="header-section-number">3.1</span>
+      開発に際しての注意点</h2>
+      <p>次のショートカットは必須となります。</p>
+      <ul>
+      <li>保存 (Save) : <code>Ctrl+S</code></li>
+      <li>実行 (Run) : <code>Ctrl+R</code></li>
+      <li>コメントアウト/アンコメント: <code>Ctrl+/</code></li>
+      <li>整形 (AutoFormat) : <code>Shift+Alt+F</code></li>
+      <li>タブの切り替え: <code>Ctrl+Tab</code> (Chromeの機能)</li>
+      </ul>
+      <p>開発のなかで <strong>意図した動作をしないとき</strong> は、次のことを確認してください。</p>
+      <ul>
+      <li>コードは保存されているか。</li>
+      <li>ドロップダウンリストで実行対象の関数が選択されているか。</li>
+      <li>関数の途中にブレイクポイントが設定されていないか。</li>
+      <li>全角スペースが混入していないか。</li>
+      <li>コードに波線が表示されていないか。波線が表示されている場合は、明らかな文法ミスがあります。</li>
+      </ul>
+      <p>また、デバッグ (エラーの解消) やコードの理解のためには、次のことを試してください。</p>
+      <ul>
+      <li><code>console.log()</code> で変数の値を確認出力する。</li>
+      <li>エラーメッセージをそのままウェブ検索する。</li>
+      <li>ChatGPTなどの生成系AIを利用する。</li>
+      </ul>
+      <h2 data-number="3.2" id="google-apps-script-言語仕様"><span
+      class="header-section-number">3.2</span> Google Apps Script 言語仕様</h2>
+      <p><strong>Google Apps Script</strong> は、基本的には <strong>JavaScript</strong>
+      と同じと考えてください。Python との相違点として、次の点に注意してください。</p>
+      <ul>
+      <li>文の末尾にはセミコロン <code>;</code> をつける。</li>
+      <li>文頭に <code>//</code> を記述すると <strong>コメント</strong> として扱われる。
+      <ul>
+      <li><code>/*</code> と <code>*/</code> で範囲をコメントすることもできる。</li>
+      </ul></li>
+      <li><strong>インデント</strong>は意味を持たない。ただし、可読性の問題から適切にインデントする必要がある。
+      <ul>
+      <li><code>Shft+Alt+F</code> で常に自動整形を適用すること。</li>
+      </ul></li>
+      </ul>
+      <h2 data-number="3.3" id="演習"><span class="header-section-number">3.3</span> 演習</h2>
+      <p><strong>演習1</strong>: 関数 <code>writeValue_01()</code> を「セル参照 <strong>B1</strong>
+      に <code>20</code>
+      を書き込む処理」に書き換えよ。また、保存して、ショートカットを使って実行せよ
+      (以下、同様)。<code>Ctrl+S</code>、<code>Ctrl+R</code>。</p>
+      <p><strong>演習2</strong>: 関数 <code>writeValue_01a()</code> を新規作成し、セル参照
+      <strong>A2</strong> に <code>77</code>
+      を書き込むように書き換えよ。<strong>実行対象の関数を切り替えること</strong> に注意せよ。</p>
+      <p><strong>演習3</strong>: 関数 <code>writeValue_01()</code> を「セル参照 <strong>B1</strong>
+      に文字列 <code>実験実習</code> を書き込む処理」に書き換えよ。Python と同様に、Apps Script
+      では文字列を <span class="masked">シングルクォーテーション または
+      ダブルクォーテーション</span> で囲むことによって与える。</p>
+      <h1 data-number="4" id="文の分割"><span class="header-section-number">4</span> 文の分割</h1>
+      <p>次の 関数 <code>writeValue_01</code> と <code>writeValue_02</code>
+      は実質的に<strong>等価</strong>となります。関数内での変数宣言には <code>let</code>
+      を使用します。<code>var</code> は非推奨です。</p>
+      <div class="sourceCode" id="cb2" data-caption="文の分割"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">function</span> <span class="fu">writeValue_01</span>() {</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  SpreadsheetApp<span class="op">.</span><span class="fu">getActiveSheet</span>()<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;A1&#39;</span>)<span class="op">.</span><span class="fu">setValue</span>(<span class="dv">10</span>)<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>}</span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="kw">function</span> <span class="fu">writeValue_02</span>() {</span>
+<span id="cb2-6"><a href="#cb2-6"></a>  <span class="kw">let</span> s <span class="op">=</span> SpreadsheetApp<span class="op">.</span><span class="fu">getActiveSheet</span>()<span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>  <span class="kw">let</span> r <span class="op">=</span> s<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;A1&#39;</span>)<span class="op">;</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>  r<span class="op">.</span><span class="fu">setValue</span>(<span class="dv">30</span>)<span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>}</span></code></pre></div>
+      <ul>
+      <li>ChatGPT : <a
+      href="https://chat.openai.com/share/d8335e2f-c491-46cf-9495-1331b5531222">なぜ let
+      が推奨されるのか</a></li>
+      </ul>
+      <p><strong>演習</strong>: 動作確認せよ。</p>
+      <h1 data-number="5" id="様々なセルの参照方法-単一セル"><span
+      class="header-section-number">5</span> 様々なセルの参照方法 (単一セル)</h1>
+      <div class="sourceCode" id="cb3" data-caption="セルの参照"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">function</span> <span class="fu">writeValue_03</span>() {</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="co">//「A1参照方式」で値を書き込む</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>  SpreadsheetApp<span class="op">.</span><span class="fu">getActiveSheet</span>()<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;A1&#39;</span>)<span class="op">.</span><span class="fu">setValue</span>(<span class="dv">10</span>)<span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="co">//「R1C1参照形式」で値を書き込む 1オリジンなので注意</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>  SpreadsheetApp<span class="op">.</span><span class="fu">getActiveSheet</span>()<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;R2C1&#39;</span>)<span class="op">.</span><span class="fu">setValue</span>(<span class="dv">20</span>)<span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a></span>
+<span id="cb3-8"><a href="#cb3-8"></a>  <span class="co">//「数値」を引数で与えてで値を書き込む 1オリジンなので注意</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>  SpreadsheetApp<span class="op">.</span><span class="fu">getActiveSheet</span>()<span class="op">.</span><span class="fu">getRange</span>(<span class="dv">3</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">.</span><span class="fu">setValue</span>(<span class="dv">30</span>)<span class="op">;</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>}</span></code></pre></div>
+      <h1 data-number="6" id="セルに対する計算式の書き込み"><span
+      class="header-section-number">6</span> セルに対する計算式の書き込み</h1>
+      <div class="sourceCode" id="cb4" data-caption="式の書き込み"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">function</span> <span class="fu">writeFormula</span>() {</span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="kw">let</span> r <span class="op">=</span> SpreadsheetApp<span class="op">.</span><span class="fu">getActiveSheet</span>()<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;A4&#39;</span>)<span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>  r<span class="op">.</span><span class="fu">setFormula</span>(<span class="st">&#39;=A1+A2+A3*5&#39;</span>)<span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>}</span></code></pre></div>
+      <h1 data-number="7" id="値の読込みと書き込み"><span class="header-section-number">7</span>
+      値の読込みと書き込み</h1>
+      <ul>
+      <li>実行する際には、あらかじめセルA1に <code>10</code> を書き込んでおく。</li>
+      <li><strong><em>新要素</em></strong> : <code>getValue</code> メソッド</li>
+      <li><strong><em>新要素</em></strong> : (テンプレート文字列)</li>
+      <li><strong><em>新要素</em></strong> : <code>console.log</code> 関数</li>
+      </ul>
+      <div class="sourceCode" id="cb5" data-caption="セルの値の「読み取り」と「書き込み」"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">function</span> <span class="fu">writeValue_04</span>() {</span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="kw">let</span> target <span class="op">=</span> <span class="st">&#39;A1&#39;</span><span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="kw">let</span> num <span class="op">=</span> SpreadsheetApp<span class="op">.</span><span class="fu">getActiveSheet</span>()<span class="op">.</span><span class="fu">getRange</span>(target)<span class="op">.</span><span class="fu">getValue</span>()<span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`セル </span><span class="sc">${</span>target<span class="sc">}</span><span class="vs"> の </span><span class="sc">${</span>num<span class="sc">}</span><span class="vs"> をインクリメントして上書きします`</span>)<span class="op">;</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>  num<span class="op">++;</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>  SpreadsheetApp<span class="op">.</span><span class="fu">getActiveSheet</span>()<span class="op">.</span><span class="fu">getRange</span>(target)<span class="op">.</span><span class="fu">setValue</span>(num)<span class="op">;</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>}</span></code></pre></div>
+      <p><code>console.log</code> 以外にも、<code>info</code> や <code>error</code> などがある。</p>
+      <hr />
+      <p><strong>演習1</strong> セルAに何も値が存在しないとき (空白のとき)
+      、どのようになるか確認せよ。</p>
+      <p><strong>演習2</strong> セルAに文字列 (例えば <code>実験実習</code> )
+      が入っているとき、どのようになるか確認せよ。</p>
+      <h1 data-number="8" id="条件分岐と型の確認"><span class="header-section-number">8</span>
+      条件分岐と型の確認</h1>
+      <ul>
+      <li><strong><em>新要素</em></strong> : 条件分岐</li>
+      <li><strong><em>新要素</em></strong> : 型の確認 <code>typeof</code></li>
+      </ul>
+      <div class="sourceCode" id="cb6" data-caption="条件分岐と型の確認"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">function</span> <span class="fu">writeValue_05</span>() {</span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="kw">let</span> target <span class="op">=</span> <span class="st">&#39;A1&#39;</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="kw">let</span> r <span class="op">=</span> SpreadsheetApp<span class="op">.</span><span class="fu">getActiveSheet</span>()<span class="op">.</span><span class="fu">getRange</span>(target)<span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="kw">let</span> num <span class="op">=</span> r<span class="op">.</span><span class="fu">getValue</span>()<span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>  <span class="cf">if</span> (<span class="kw">typeof</span> (num) <span class="op">==</span> <span class="st">&#39;number&#39;</span>) {</span>
+<span id="cb6-6"><a href="#cb6-6"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`セル </span><span class="sc">${</span>target<span class="sc">}</span><span class="vs"> の </span><span class="sc">${</span>num<span class="sc">}</span><span class="vs"> をインクリメントして上書きします。`</span>)<span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a>    r<span class="op">.</span><span class="fu">setValue</span>(num<span class="op">++</span>)<span class="op">;</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>  } <span class="cf">else</span> {</span>
+<span id="cb6-9"><a href="#cb6-9"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">warn</span>(<span class="vs">`セル </span><span class="sc">${</span>target<span class="sc">}</span><span class="vs"> は数値ではなく </span><span class="sc">${</span><span class="kw">typeof</span> (num)<span class="sc">}</span><span class="vs"> なのでインクリメントできません。`</span>)<span class="op">;</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a>  }</span>
+<span id="cb6-11"><a href="#cb6-11"></a>}</span></code></pre></div>
+      <h1 data-number="9" id="関数の呼び出しと乱数生成"><span class="header-section-number">9</span>
+      関数の呼び出しと乱数生成</h1>
+      <ul>
+      <li><strong><em>新要素</em></strong> : 関数、引数、戻り値</li>
+      <li><strong><em>新要素</em></strong> : <code>Math.floor</code> 引数以下の最大の整数</li>
+      <li><strong><em>新要素</em></strong> : <code>Math.rand</code> 0以上1未満の乱数</li>
+      </ul>
+      <div class="sourceCode" id="cb7" data-caption="関数の呼び出しと乱数生成"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">function</span> <span class="fu">writeValue_06</span>() {</span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="kw">let</span> t <span class="op">=</span> <span class="st">&#39;A1&#39;</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="kw">let</span> v <span class="op">=</span> <span class="fu">writeValue_06a</span>(t)<span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`セル </span><span class="sc">${</span>t<span class="sc">}</span><span class="vs"> に </span><span class="sc">${</span>v<span class="sc">}</span><span class="vs"> を書き込みました。`</span>)<span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>}</span>
+<span id="cb7-6"><a href="#cb7-6"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="kw">function</span> <span class="fu">writeValue_06a</span>(target) {</span>
+<span id="cb7-8"><a href="#cb7-8"></a>  <span class="kw">let</span> dice <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>()<span class="op">*</span><span class="dv">6</span><span class="op">+</span><span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a>  SpreadsheetApp<span class="op">.</span><span class="fu">getActiveSheet</span>()<span class="op">.</span><span class="fu">getRange</span>(target)<span class="op">.</span><span class="fu">setValue</span>(dice)<span class="op">;</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a>  <span class="cf">return</span> dice<span class="op">;</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a>}</span></code></pre></div>
+      <h1 data-number="10" id="現在時刻の書き込み"><span class="header-section-number">10</span>
+      現在時刻の書き込み</h1>
+      <ul>
+      <li><strong><em>新要素</em></strong> : <code>Date()</code></li>
+      <li><strong><em>新要素</em></strong> :
+      <code>Utilities.formatDate(now,'Asia/Tokyo',format)</code></li>
+      </ul>
+      <div class="sourceCode" id="cb8" data-caption="現在時刻の書き込み"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">function</span> <span class="fu">writeValue_07</span>() {</span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="kw">let</span> now <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="kw">let</span> format <span class="op">=</span> <span class="st">&#39;yyyy年MM月dd日 HH時mm分ss秒&#39;</span><span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="kw">let</span> dtString <span class="op">=</span> Utilities<span class="op">.</span><span class="fu">formatDate</span>(now<span class="op">,</span> <span class="st">&#39;Asia/Tokyo&#39;</span><span class="op">,</span> format)<span class="op">;</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`セルに書き込む値は </span><span class="sc">${</span>dtString<span class="sc">}</span><span class="vs"> です。`</span>)<span class="op">;</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a>  <span class="kw">let</span> r <span class="op">=</span> SpreadsheetApp<span class="op">.</span><span class="fu">getActiveSheet</span>()<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;A1&#39;</span>)<span class="op">;</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a>  r<span class="op">.</span><span class="fu">setNumberFormat</span>(<span class="st">&#39;@&#39;</span>)<span class="op">;</span> <span class="co">// 表示形式 → 書式なしテキスト</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a>  <span class="co">// r.setNumberFormat(null); // 表示形式 → 自動</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a>  r<span class="op">.</span><span class="fu">setValue</span>(dtString)<span class="op">;</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a>}</span></code></pre></div>
+      <h1 data-number="11" id="指定列の末尾に書き込み"><span class="header-section-number">11</span>
+      指定列の末尾に書き込み</h1>
+      <div class="sourceCode" id="cb9" data-caption="指定列の末尾に書き込み"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">function</span> <span class="fu">getDateTimeString</span>(){</span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="kw">let</span> now <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="kw">let</span> format <span class="op">=</span> <span class="st">&#39;yyyy年MM月dd日 HH時mm分ss秒&#39;</span><span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>  <span class="cf">return</span> Utilities<span class="op">.</span><span class="fu">formatDate</span>(now<span class="op">,</span> <span class="st">&#39;Asia/Tokyo&#39;</span><span class="op">,</span> format)<span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a>}</span>
+<span id="cb9-6"><a href="#cb9-6"></a></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="kw">function</span> <span class="fu">writeValue_08</span>() {</span>
+<span id="cb9-8"><a href="#cb9-8"></a>  <span class="kw">let</span> st <span class="op">=</span> SpreadsheetApp<span class="op">.</span><span class="fu">getActiveSheet</span>()<span class="op">;</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a>  <span class="kw">let</span> lastRow <span class="op">=</span> st<span class="op">.</span><span class="fu">getLastRow</span>()<span class="op">;</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a>  <span class="cf">if</span> (lastRow <span class="op">==</span> <span class="dv">0</span>){</span>
+<span id="cb9-11"><a href="#cb9-11"></a>    <span class="kw">let</span> c <span class="op">=</span> st<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;A1&#39;</span>)</span>
+<span id="cb9-12"><a href="#cb9-12"></a>    c<span class="op">.</span><span class="fu">setNumberFormat</span>(<span class="st">&#39;@&#39;</span>)<span class="op">;</span></span>
+<span id="cb9-13"><a href="#cb9-13"></a>    c<span class="op">.</span><span class="fu">setValue</span>(<span class="fu">getDateTimeString</span>())<span class="op">;</span></span>
+<span id="cb9-14"><a href="#cb9-14"></a>    <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb9-15"><a href="#cb9-15"></a>  }</span>
+<span id="cb9-16"><a href="#cb9-16"></a>  <span class="kw">let</span> data <span class="op">=</span> st<span class="op">.</span><span class="fu">getRange</span>(<span class="vs">`A1:A</span><span class="sc">${</span>lastRow<span class="sc">}</span><span class="vs">`</span>)<span class="op">.</span><span class="fu">getValues</span>()<span class="op">;</span></span>
+<span id="cb9-17"><a href="#cb9-17"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> data<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">;</span> i<span class="op">--</span>) {</span>
+<span id="cb9-18"><a href="#cb9-18"></a>    <span class="cf">if</span> (data[i][<span class="dv">0</span>] <span class="op">!==</span> <span class="st">&#39;&#39;</span>) {</span>
+<span id="cb9-19"><a href="#cb9-19"></a>      <span class="kw">let</span> c <span class="op">=</span> st<span class="op">.</span><span class="fu">getRange</span>(<span class="vs">`A</span><span class="sc">${</span>i<span class="op">+</span><span class="dv">2</span><span class="sc">}</span><span class="vs">`</span>)</span>
+<span id="cb9-20"><a href="#cb9-20"></a>      c<span class="op">.</span><span class="fu">setNumberFormat</span>(<span class="st">&#39;@&#39;</span>)<span class="op">;</span></span>
+<span id="cb9-21"><a href="#cb9-21"></a>      c<span class="op">.</span><span class="fu">setValue</span>(<span class="fu">getDateTimeString</span>())<span class="op">;</span></span>
+<span id="cb9-22"><a href="#cb9-22"></a>      <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb9-23"><a href="#cb9-23"></a>    }</span>
+<span id="cb9-24"><a href="#cb9-24"></a>  }</span>
+<span id="cb9-25"><a href="#cb9-25"></a>}</span></code></pre></div>
+      <h1 data-number="12" id="スプレッドシートのメニューにアイテムを追加"><span
+      class="header-section-number">12</span> スプレッドシートのメニューにアイテムを追加</h1>
+      <p>次の関数を <code>コード.gs</code>
+      に追記して保存後、「<strong>シートタブ</strong>」に切り替えてスプレッドシートの「<strong>再読み込み</strong>
+      <code>F5</code>」が必要です。また、ここで <strong>第03行目</strong> と
+      <strong>第04行目</strong> の末尾にはセミコロンを <strong>記述しない</strong>
+      ことに注意してください。</p>
+      <div class="sourceCode" id="cb10" data-caption="メニューにアイテムを追加"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">function</span> <span class="fu">onOpen</span>() {</span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="kw">const</span> ui <span class="op">=</span> SpreadsheetApp<span class="op">.</span><span class="fu">getUi</span>()<span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>  ui<span class="op">.</span><span class="fu">createMenu</span>(<span class="st">&#39;GAS-1&#39;</span>)</span>
+<span id="cb10-4"><a href="#cb10-4"></a>    <span class="op">.</span><span class="fu">addItem</span>(<span class="st">&#39;時刻を末尾に追加&#39;</span><span class="op">,</span> <span class="st">&#39;writeValue_08&#39;</span>)</span>
+<span id="cb10-5"><a href="#cb10-5"></a>    <span class="op">.</span><span class="fu">addToUi</span>()<span class="op">;</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>}</span></code></pre></div>
+      <p>スプレッドシートのメニューに「<strong>GAS-1</strong>」が追加され、そのメニューアイテムに「<strong>時刻を末尾に追加</strong>」が追加されています。「<strong>時刻を末尾に追加</strong>」を押下すると、<strong>第04行目</strong>
+      の第2引数で指定した関数が実行されます。</p>
+      <figure>
+      <img src="figs/03/gas-04.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      <h1 data-number="13" id="指定列の指定行に挿入して書き込み"><span
+      class="header-section-number">13</span> 指定列の指定行に挿入して書き込み</h1>
+      <div class="sourceCode" id="cb11" data-caption="メニューの更新"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">function</span> <span class="fu">onOpen</span>() {</span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="kw">const</span> ui <span class="op">=</span> SpreadsheetApp<span class="op">.</span><span class="fu">getUi</span>()<span class="op">;</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>  ui<span class="op">.</span><span class="fu">createMenu</span>(<span class="st">&#39;GAS-1&#39;</span>)</span>
+<span id="cb11-4"><a href="#cb11-4"></a>    <span class="op">.</span><span class="fu">addItem</span>(<span class="st">&#39;時刻を末尾に追加&#39;</span><span class="op">,</span> <span class="st">&#39;writeValue_08&#39;</span>)</span>
+<span id="cb11-5"><a href="#cb11-5"></a>    <span class="op">.</span><span class="fu">addItem</span>(<span class="st">&#39;時刻を先頭に追加&#39;</span><span class="op">,</span> <span class="st">&#39;writeValue_09&#39;</span>)</span>
+<span id="cb11-6"><a href="#cb11-6"></a>    <span class="op">.</span><span class="fu">addToUi</span>()<span class="op">;</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a> }</span></code></pre></div>
+      <div class="sourceCode" id="cb12" data-caption="メニューにアイテムを追加"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">function</span> <span class="fu">writeValue_09</span>() {</span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="kw">let</span> st <span class="op">=</span> SpreadsheetApp<span class="op">.</span><span class="fu">getActiveSheet</span>()<span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>  st<span class="op">.</span><span class="fu">insertRowBefore</span>(<span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="kw">let</span> c <span class="op">=</span> st<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;A2&#39;</span>)</span>
+<span id="cb12-5"><a href="#cb12-5"></a>  c<span class="op">.</span><span class="fu">setNumberFormat</span>(<span class="st">&#39;@&#39;</span>)<span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a>  c<span class="op">.</span><span class="fu">setValue</span>(<span class="fu">getDateTimeString</span>())<span class="op">;</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a>}</span></code></pre></div>
+      <h1 data-number="14" id="http-get-をトリガーとする関数の実行"><span
+      class="header-section-number">14</span> HTTP GET をトリガーとする関数の実行</h1>
+      <p>次のコードを記述して保存し、動作を確認してください。</p>
+      <div class="sourceCode" id="cb13" data-caption="HTTP GET で実行される関数"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">function</span> <span class="fu">doGet</span>(e) {</span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">writeValue_09</span>()<span class="op">;</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="kw">let</span> msg <span class="op">=</span> <span class="vs">`処理を受け付けました。</span><span class="sc">\n</span><span class="vs">e = </span><span class="sc">${</span><span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(e)<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(msg)<span class="op">;</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>  <span class="cf">return</span> ContentService<span class="op">.</span><span class="fu">createTextOutput</span>(msg)<span class="op">;</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>}</span></code></pre></div>
+      <p>「<strong>Gasのタブ</strong>」から直接実行した場合の実行結果は次のようになるはずです。また「シートタブ」のなかの「セルA2」に現在時刻が挿入されるはずです。</p>
+      <pre><code>処理を受け付けました。
+e = undefined</code></pre>
+      <p><code>doGet</code> という名前を設定した関数は、プロジェクトに次の設定を行なうことで
+      <strong>HTTP GET リクエスト</strong> をトリガーに実行させることができます。</p>
+      <p>「<strong>GASタブ</strong>」の右上の「<strong>デプロイ</strong>」のボタンを押下して「<strong>新しいデプロイ</strong>」を選択します。ダイアログが開くので<i class="fa-solid fa-gear"></i>アイコンをクリックして「<strong>ウェブアプリ</strong>」を選択します。</p>
+      <figure>
+      <img src="figs/03/http-t-01.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      <p>「<strong>次のユーザーとして実行</strong>」を「<strong>自分</strong>」に設定します。また「<strong>アクセスできるユーザー</strong>」を「<strong>全員</strong>」に設定し、下部の「<strong>デプロイ</strong>」を押下します。</p>
+      <figure>
+      <img src="figs/03/http-t-02.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      <p>次のようなダイアログが表示されるので「<strong>ウェブアプリ</strong>」の項目の URL
+      をコピーしてから「<strong>完了</strong>」のボタンを押下します。このURLは
+      <code>https://script.google.com/macros/s/xxxx/exec</code> のような形式になります。</p>
+      <figure>
+      <img src="figs/03/http-t-03.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      <p>もし、URLをコピーする前に「完了」で閉じてしまった場合や、コピーしたURLを失くしてしまった場合は、「<strong>Gasタブ</strong>」の右上の「デプロイ」のボタンを押下して「<strong>デプロイを管理</strong>」から
+      URL を再取得ができます。</p>
+      <figure>
+      <img src="figs/03/http-t-04.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      <p>ウェブブラウザで新しいタブを開いて、先ほど取得した URL
+      をアドレスバーに貼付けてください。以下のような応答が返ってくるはずです。また「<strong>シートタブ</strong>」を確認してください。「セルA2」に現在時刻が挿入されているはずです。</p>
+      <figure>
+      <img src="figs/03/http-t-05.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      <p>以上のように、HTTP GET をトリガーとして <code>doGet</code> 関数が実行され
+      <code>return ContentService.createTextOutput(msg)</code>
+      で指示した内容がレスポンスされます。また <code>doGet</code> の引数 <code>e</code> の内容が
+      <code>undefined</code> ではなくなっていることが確認できます。</p>
+      <pre><code>処理を受け付けました。
+e = {&quot;parameters&quot;:{},&quot;contentLength&quot;:-1,&quot;parameter&quot;:{},&quot;contextPath&quot;:&quot;&quot;,&quot;queryString&quot;:&quot;&quot;}</code></pre>
+      <p>詳細については、次回以降に解説しますが
+      <code>https://script.google.com/macros/s/xxxx/exec?name=Taro&amp;age=20</code>
+      のようにアクセスすると、次のような応答になります。つまり、URLにつけたパラメータが、下記の形式で引数
+      <code>e</code> に格納されます。</p>
+      <pre><code>処理を受け付けました。
+e = {&quot;parameter&quot;:{&quot;age&quot;:&quot;20&quot;,&quot;name&quot;:&quot;Taro&quot;},&quot;queryString&quot;:&quot;name=Taro&amp;age=20&quot;,&quot;parameters&quot;:{&quot;name&quot;:[&quot;Taro&quot;],&quot;age&quot;:[&quot;20&quot;]},&quot;contextPath&quot;:&quot;&quot;,&quot;contentLength&quot;:-1}</code></pre>
+      <h2 data-number="14.1" id="処理の更新"><span class="header-section-number">14.1</span>
+      処理の更新</h2>
+      <p><code>doGet</code>
+      を次のように時刻も応答するように書き換え、保存し「<strong>Gasタブ</strong>」から実行してください。</p>
+      <div class="sourceCode" id="cb17" data-caption="HTTP GET で実行される関数"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">function</span> <span class="fu">doGet</span>(e) {</span>
+<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">writeValue_09</span>()<span class="op">;</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a>  <span class="kw">let</span> msg <span class="op">=</span> <span class="vs">`処理を受け付けました(</span><span class="sc">${</span><span class="fu">getDateTimeString</span>()<span class="sc">}</span><span class="vs">)。</span><span class="sc">\n</span><span class="vs">e = </span><span class="sc">${</span><span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(e)<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(msg)<span class="op">;</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a>  <span class="cf">return</span> ContentService<span class="op">.</span><span class="fu">createTextOutput</span>(msg)<span class="op">;</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a>}</span></code></pre></div>
+      <p>再度、<code>https://script.google.com/macros/s/xxxx/exec</code>
+      にアクセスして動作を確認してください。こちらでは変更が反映されていないことがわかると思います。処理は、基本的にデプロイした時点のものが実行されます。処理を更新するためには、「<strong>デプロイを管理</strong>」から「<strong>編集</strong>」を選択して、</p>
+      <figure>
+      <img src="figs/03/http-t-06.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      <p>バージョンを「<strong>新しいバージョン</strong>」に変更します。</p>
+      <figure>
+      <img src="figs/03/http-t-07.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      <p>これにより、変更を反映されることができます。URL には変更はありません。</p>
+      <h2 data-number="14.2" id="デプロイのテスト"><span class="header-section-number">14.2</span>
+      デプロイのテスト</h2>
+      <p>「<strong>Gasタブ</strong>」の右上の「<strong>デプロイ</strong>」の「<strong>デプロイをテスト</strong>」を選択すると
+      <code>https://script.google.com/macros/s/xxxx/dev</code> というURLを取得できます。末尾が
+      <code>exec</code> から <code>dev</code> になっている点に注意してください。</p>
+      <p>この URL からアクセスすると、常に最新の最新の <code>doGet</code>
+      関数が実行されます。ただし、<code>https://script.google.com/macros/s/xxxx/dev</code>
+      にアクセスして <code>doGet</code>
+      関数が実行できるのは、開発者のアカウントでログインしているときです。シークレットモードやゲストモード、Pythonプログラムからアクセスすることはできません。</p>
+      <h1 data-number="15" id="pythonプログラムからウェブアプリにアクセス"><span
+      class="header-section-number">15</span> Pythonプログラムからウェブアプリにアクセス</h1>
+      <div class="sourceCode" id="cb18" data-caption="HTTTP GET リクエストを送信するプログラム"><pre
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="im">import</span> requests</span>
+<span id="cb18-2"><a href="#cb18-2"></a></span>
+<span id="cb18-3"><a href="#cb18-3"></a>base_URL <span class="op">=</span> <span class="st">&#39;https://script.google.com/macros/s/&#39;</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a>deploy_ID <span class="op">=</span> <span class="st">&#39;AKfycbytyMuxxxx&#39;</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>URL <span class="op">=</span> base_URL <span class="op">+</span> deploy_ID <span class="op">+</span> <span class="st">&#39;/exec&#39;</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a></span>
+<span id="cb18-7"><a href="#cb18-7"></a>res <span class="op">=</span> requests.get(URL)</span>
+<span id="cb18-8"><a href="#cb18-8"></a><span class="bu">print</span>(res.text)</span></code></pre></div>
+      <h1 data-number="16" id="htmlcssウェブアプリにアクセス"><span
+      class="header-section-number">16</span> HTML/CSSウェブアプリにアクセス</h1>
+      <div class="sourceCode" id="cb19" data-caption="doGet"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">function</span> <span class="fu">doGet</span>(e) {</span>
+<span id="cb19-2"><a href="#cb19-2"></a></span>
+<span id="cb19-3"><a href="#cb19-3"></a>  <span class="kw">let</span> action <span class="op">=</span> e<span class="op">.</span><span class="at">parameter</span><span class="op">.</span><span class="at">action</span><span class="op">;</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a>  <span class="kw">let</span> msg <span class="op">=</span> <span class="st">&quot;URL に &#39;action&#39; パラメータが不足しています。&quot;</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a>  <span class="cf">if</span>(action <span class="op">==</span> <span class="st">&#39;in&#39;</span>){</span>
+<span id="cb19-6"><a href="#cb19-6"></a>    <span class="fu">writeValue_09</span>()<span class="op">;</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a>    SpreadsheetApp<span class="op">.</span><span class="fu">getActiveSheet</span>()<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;B2&#39;</span>)<span class="op">.</span><span class="fu">setValue</span>(<span class="st">&#39;入室&#39;</span>)<span class="op">;</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a>    msg <span class="op">=</span> <span class="st">&#39;入室を記録しました&#39;</span><span class="op">;</span></span>
+<span id="cb19-9"><a href="#cb19-9"></a>  } <span class="cf">else</span> <span class="cf">if</span> (action <span class="op">==</span> <span class="st">&#39;out&#39;</span> ){</span>
+<span id="cb19-10"><a href="#cb19-10"></a>    <span class="fu">writeValue_09</span>()<span class="op">;</span></span>
+<span id="cb19-11"><a href="#cb19-11"></a>    SpreadsheetApp<span class="op">.</span><span class="fu">getActiveSheet</span>()<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;B2&#39;</span>)<span class="op">.</span><span class="fu">setValue</span>(<span class="st">&#39;退出&#39;</span>)<span class="op">;</span></span>
+<span id="cb19-12"><a href="#cb19-12"></a>    msg <span class="op">=</span> <span class="st">&#39;退出を記録しました&#39;</span><span class="op">;</span></span>
+<span id="cb19-13"><a href="#cb19-13"></a>  }</span>
+<span id="cb19-14"><a href="#cb19-14"></a>  <span class="cf">return</span> ContentService<span class="op">.</span><span class="fu">createTextOutput</span>(msg)<span class="op">;</span></span>
+<span id="cb19-15"><a href="#cb19-15"></a>}</span></code></pre></div>
+      <div class="sourceCode" id="cb20" data-caption="gas-web-app-01.html"><pre
+      class="sourceCode numberSource html numberLines"><code class="sourceCode html"><span id="cb20-1"><a href="#cb20-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">&quot;ja&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a>  <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a>    <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">&quot;utf-8&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a>    <span class="dt">&lt;</span><span class="kw">meta</span></span>
+<span id="cb20-6"><a href="#cb20-6"></a><span class="ot">      name</span><span class="op">=</span><span class="st">&quot;viewport&quot;</span></span>
+<span id="cb20-7"><a href="#cb20-7"></a><span class="ot">      content</span><span class="op">=</span><span class="st">&quot;width=device-width, initial-scale=1.0, user-scalable=yes&quot;</span></span>
+<span id="cb20-8"><a href="#cb20-8"></a><span class="ot">    </span><span class="dt">/&gt;</span></span>
+<span id="cb20-9"><a href="#cb20-9"></a>    <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>WebAppTemplate<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb20-10"><a href="#cb20-10"></a>    <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;main.css&quot;</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
+<span id="cb20-11"><a href="#cb20-11"></a>  <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb20-12"><a href="#cb20-12"></a></span>
+<span id="cb20-13"><a href="#cb20-13"></a>  <span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb20-14"><a href="#cb20-14"></a>    <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>アプリのタイトル<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb20-15"><a href="#cb20-15"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb20-16"><a href="#cb20-16"></a>      <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>アプリの説明<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb20-17"><a href="#cb20-17"></a>      <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;image.png&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
+<span id="cb20-18"><a href="#cb20-18"></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb20-19"><a href="#cb20-19"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb20-20"><a href="#cb20-20"></a>      <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;BtnGet1&quot;</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;btn&quot;</span><span class="dt">&gt;</span>GET1<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb20-21"><a href="#cb20-21"></a>      <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;BtnGet2&quot;</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;btn&quot;</span><span class="dt">&gt;</span>GET2<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb20-22"><a href="#cb20-22"></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb20-23"><a href="#cb20-23"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;IsBusy&quot;</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;loader&quot;</span><span class="ot"> hidden</span><span class="dt">&gt;</span>Loading...<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb20-24"><a href="#cb20-24"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb20-25"><a href="#cb20-25"></a>      <span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;ResMsg&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb20-26"><a href="#cb20-26"></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb20-27"><a href="#cb20-27"></a>  <span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb20-28"><a href="#cb20-28"></a></span>
+<span id="cb20-29"><a href="#cb20-29"></a>  <span class="dt">&lt;</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb20-30"><a href="#cb20-30"></a>    <span class="bu">window</span><span class="op">.</span><span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span> () {</span>
+<span id="cb20-31"><a href="#cb20-31"></a>      <span class="kw">function</span> <span class="fu">$</span>(e) {</span>
+<span id="cb20-32"><a href="#cb20-32"></a>        <span class="cf">return</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(e)<span class="op">;</span></span>
+<span id="cb20-33"><a href="#cb20-33"></a>      }</span>
+<span id="cb20-34"><a href="#cb20-34"></a>      <span class="kw">const</span> API_ID <span class="op">=</span> <span class="st">&quot;xxxx&quot;</span><span class="op">;</span></span>
+<span id="cb20-35"><a href="#cb20-35"></a>      <span class="kw">const</span> API_URL <span class="op">=</span> <span class="vs">`https://script.google.com/macros/s/</span><span class="sc">${</span>API_ID<span class="sc">}</span><span class="vs">/exec`</span><span class="op">;</span></span>
+<span id="cb20-36"><a href="#cb20-36"></a></span>
+<span id="cb20-37"><a href="#cb20-37"></a>      <span class="kw">function</span> <span class="fu">GetData</span>(action) {</span>
+<span id="cb20-38"><a href="#cb20-38"></a>        <span class="fu">$</span>(<span class="st">&quot;#ResMsg&quot;</span>)<span class="op">.</span><span class="at">hidden</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb20-39"><a href="#cb20-39"></a>        <span class="fu">$</span>(<span class="st">&quot;#IsBusy&quot;</span>)<span class="op">.</span><span class="at">hidden</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb20-40"><a href="#cb20-40"></a></span>
+<span id="cb20-41"><a href="#cb20-41"></a>        URL <span class="op">=</span> <span class="vs">`</span><span class="sc">${</span>API_URL<span class="sc">}</span><span class="vs">?action=</span><span class="sc">${</span>action<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb20-42"><a href="#cb20-42"></a>        <span class="fu">fetch</span>(URL<span class="op">,</span> { <span class="dt">method</span><span class="op">:</span> <span class="st">&quot;GET&quot;</span> })</span>
+<span id="cb20-43"><a href="#cb20-43"></a>          <span class="op">.</span><span class="fu">then</span>((res) <span class="kw">=&gt;</span> res<span class="op">.</span><span class="fu">text</span>())</span>
+<span id="cb20-44"><a href="#cb20-44"></a>          <span class="op">.</span><span class="fu">then</span>((res) <span class="kw">=&gt;</span> {</span>
+<span id="cb20-45"><a href="#cb20-45"></a>            <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(res)<span class="op">;</span></span>
+<span id="cb20-46"><a href="#cb20-46"></a>            <span class="fu">$</span>(<span class="st">&quot;#IsBusy&quot;</span>)<span class="op">.</span><span class="at">hidden</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb20-47"><a href="#cb20-47"></a>            <span class="fu">$</span>(<span class="st">&quot;#ResMsg&quot;</span>)<span class="op">.</span><span class="at">hidden</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb20-48"><a href="#cb20-48"></a>            <span class="fu">$</span>(<span class="st">&quot;#ResMsg&quot;</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> res<span class="op">;</span></span>
+<span id="cb20-49"><a href="#cb20-49"></a>          })<span class="op">;</span></span>
+<span id="cb20-50"><a href="#cb20-50"></a>      }</span>
+<span id="cb20-51"><a href="#cb20-51"></a></span>
+<span id="cb20-52"><a href="#cb20-52"></a>      <span class="fu">$</span>(<span class="st">&quot;#BtnGet1&quot;</span>)<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> GetData<span class="op">.</span><span class="fu">bind</span>(<span class="kw">null</span><span class="op">,</span> <span class="st">&quot;in&quot;</span>)<span class="op">;</span></span>
+<span id="cb20-53"><a href="#cb20-53"></a>      <span class="fu">$</span>(<span class="st">&quot;#BtnGet2&quot;</span>)<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> GetData<span class="op">.</span><span class="fu">bind</span>(<span class="kw">null</span><span class="op">,</span> <span class="st">&quot;out&quot;</span>)<span class="op">;</span></span>
+<span id="cb20-54"><a href="#cb20-54"></a>    }<span class="op">;</span></span>
+<span id="cb20-55"><a href="#cb20-55"></a>  <span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb20-56"><a href="#cb20-56"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
+      <div class="sourceCode" id="cb21" data-caption="main.css"><pre
+      class="sourceCode numberSource css numberLines"><code class="sourceCode css"><span id="cb21-1"><a href="#cb21-1"></a>body {</span>
+<span id="cb21-2"><a href="#cb21-2"></a>  <span class="kw">text-align</span><span class="ch">:</span> <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a>}</span>
+<span id="cb21-4"><a href="#cb21-4"></a></span>
+<span id="cb21-5"><a href="#cb21-5"></a>img {</span>
+<span id="cb21-6"><a href="#cb21-6"></a>  <span class="kw">max-width</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb21-7"><a href="#cb21-7"></a>  <span class="kw">height</span><span class="ch">:</span> <span class="bu">auto</span><span class="op">;</span></span>
+<span id="cb21-8"><a href="#cb21-8"></a>  <span class="kw">margin</span><span class="ch">:</span> <span class="dv">0.5</span><span class="dt">rem</span> <span class="dv">0</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb21-9"><a href="#cb21-9"></a>}</span>
+<span id="cb21-10"><a href="#cb21-10"></a></span>
+<span id="cb21-11"><a href="#cb21-11"></a>h1 {</span>
+<span id="cb21-12"><a href="#cb21-12"></a>  <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">2.5</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb21-13"><a href="#cb21-13"></a>}</span>
+<span id="cb21-14"><a href="#cb21-14"></a></span>
+<span id="cb21-15"><a href="#cb21-15"></a>p {</span>
+<span id="cb21-16"><a href="#cb21-16"></a>  <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">1.5</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb21-17"><a href="#cb21-17"></a>}</span>
+<span id="cb21-18"><a href="#cb21-18"></a></span>
+<span id="cb21-19"><a href="#cb21-19"></a>button<span class="fu">.btn</span> {</span>
+<span id="cb21-20"><a href="#cb21-20"></a>  <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">1.5</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb21-21"><a href="#cb21-21"></a>  <span class="kw">font-weight</span><span class="ch">:</span> <span class="dv">700</span><span class="op">;</span></span>
+<span id="cb21-22"><a href="#cb21-22"></a>  <span class="kw">line-height</span><span class="ch">:</span> <span class="dv">1.5</span><span class="op">;</span></span>
+<span id="cb21-23"><a href="#cb21-23"></a>  <span class="kw">width</span><span class="ch">:</span> <span class="dv">55</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb21-24"><a href="#cb21-24"></a>  <span class="kw">position</span><span class="ch">:</span> <span class="dv">relative</span><span class="op">;</span></span>
+<span id="cb21-25"><a href="#cb21-25"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">inline-block</span><span class="op">;</span></span>
+<span id="cb21-26"><a href="#cb21-26"></a>  <span class="kw">padding</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">rem</span> <span class="dv">0</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb21-27"><a href="#cb21-27"></a>  <span class="kw">margin</span><span class="ch">:</span> <span class="dv">0.5</span><span class="dt">rem</span> <span class="dv">0</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb21-28"><a href="#cb21-28"></a>  <span class="kw">cursor</span><span class="ch">:</span> <span class="dv">pointer</span><span class="op">;</span></span>
+<span id="cb21-29"><a href="#cb21-29"></a>  <span class="kw">-webkit-user-select</span><span class="ch">:</span> <span class="dv">none</span><span class="op">;</span></span>
+<span id="cb21-30"><a href="#cb21-30"></a>  <span class="kw">-moz-user-select</span><span class="ch">:</span> <span class="dv">none</span><span class="op">;</span></span>
+<span id="cb21-31"><a href="#cb21-31"></a>  <span class="kw">-ms-user-select</span><span class="ch">:</span> <span class="dv">none</span><span class="op">;</span></span>
+<span id="cb21-32"><a href="#cb21-32"></a>  <span class="kw">user-select</span><span class="ch">:</span> <span class="dv">none</span><span class="op">;</span></span>
+<span id="cb21-33"><a href="#cb21-33"></a>  <span class="kw">-webkit-transition</span><span class="ch">:</span> <span class="dv">all</span> <span class="dv">0.3</span><span class="dt">s</span><span class="op">;</span></span>
+<span id="cb21-34"><a href="#cb21-34"></a>  <span class="kw">transition</span><span class="ch">:</span> <span class="dv">all</span> <span class="dv">0.3</span><span class="dt">s</span><span class="op">;</span></span>
+<span id="cb21-35"><a href="#cb21-35"></a>  <span class="kw">text-align</span><span class="ch">:</span> <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb21-36"><a href="#cb21-36"></a>  <span class="kw">vertical-align</span><span class="ch">:</span> <span class="dv">middle</span><span class="op">;</span></span>
+<span id="cb21-37"><a href="#cb21-37"></a>  <span class="kw">text-decoration</span><span class="ch">:</span> <span class="dv">none</span><span class="op">;</span></span>
+<span id="cb21-38"><a href="#cb21-38"></a>  <span class="kw">color</span><span class="ch">:</span> <span class="cn">#212529</span><span class="op">;</span></span>
+<span id="cb21-39"><a href="#cb21-39"></a>  <span class="kw">border-radius</span><span class="ch">:</span> <span class="dv">2</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb21-40"><a href="#cb21-40"></a>  <span class="kw">border</span><span class="ch">:</span> <span class="dv">2</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">#68779a</span><span class="op">;</span></span>
+<span id="cb21-41"><a href="#cb21-41"></a>  <span class="kw">background-color</span><span class="ch">:</span> <span class="cn">#cbe8fa</span><span class="op">;</span></span>
+<span id="cb21-42"><a href="#cb21-42"></a>}</span>
+<span id="cb21-43"><a href="#cb21-43"></a></span>
+<span id="cb21-44"><a href="#cb21-44"></a>button<span class="fu">.btn</span><span class="in">:hover</span> {</span>
+<span id="cb21-45"><a href="#cb21-45"></a>  <span class="kw">border</span><span class="ch">:</span> <span class="dv">5</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">#ff367f</span><span class="op">;</span></span>
+<span id="cb21-46"><a href="#cb21-46"></a>  <span class="kw">background</span><span class="ch">:</span> <span class="cn">#ffb6c1</span><span class="op">;</span></span>
+<span id="cb21-47"><a href="#cb21-47"></a>}</span>
+<span id="cb21-48"><a href="#cb21-48"></a></span>
+<span id="cb21-49"><a href="#cb21-49"></a><span class="co">/* https://projects.lukehaas.me/css-loaders/ */</span></span>
+<span id="cb21-50"><a href="#cb21-50"></a></span>
+<span id="cb21-51"><a href="#cb21-51"></a><span class="fu">.loader</span><span class="op">,</span></span>
+<span id="cb21-52"><a href="#cb21-52"></a><span class="fu">.loader</span><span class="in">:before</span><span class="op">,</span></span>
+<span id="cb21-53"><a href="#cb21-53"></a><span class="fu">.loader</span><span class="in">:after</span> {</span>
+<span id="cb21-54"><a href="#cb21-54"></a>  <span class="kw">background</span><span class="ch">:</span> <span class="cn">#000000</span><span class="op">;</span></span>
+<span id="cb21-55"><a href="#cb21-55"></a>  <span class="kw">-webkit-animation</span><span class="ch">:</span> <span class="dv">load1 1</span><span class="dt">s</span> <span class="dv">infinite</span> <span class="dv">ease-in-out</span><span class="op">;</span></span>
+<span id="cb21-56"><a href="#cb21-56"></a>  <span class="kw">animation</span><span class="ch">:</span> <span class="dv">load1 1</span><span class="dt">s</span> <span class="dv">infinite</span> <span class="dv">ease-in-out</span><span class="op">;</span></span>
+<span id="cb21-57"><a href="#cb21-57"></a>  <span class="kw">width</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb21-58"><a href="#cb21-58"></a>  <span class="kw">height</span><span class="ch">:</span> <span class="dv">4</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb21-59"><a href="#cb21-59"></a>}</span>
+<span id="cb21-60"><a href="#cb21-60"></a></span>
+<span id="cb21-61"><a href="#cb21-61"></a><span class="fu">.loader</span> {</span>
+<span id="cb21-62"><a href="#cb21-62"></a>  <span class="kw">color</span><span class="ch">:</span> <span class="cn">#000000</span><span class="op">;</span></span>
+<span id="cb21-63"><a href="#cb21-63"></a>  <span class="kw">text-indent</span><span class="ch">:</span> <span class="dv">-9999</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb21-64"><a href="#cb21-64"></a>  <span class="kw">margin</span><span class="ch">:</span> <span class="dv">88</span><span class="dt">px</span> <span class="bu">auto</span><span class="op">;</span></span>
+<span id="cb21-65"><a href="#cb21-65"></a>  <span class="kw">position</span><span class="ch">:</span> <span class="dv">relative</span><span class="op">;</span></span>
+<span id="cb21-66"><a href="#cb21-66"></a>  <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">11</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb21-67"><a href="#cb21-67"></a>  <span class="kw">-webkit-transform</span><span class="ch">:</span> <span class="fu">translateZ(</span><span class="dv">0</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb21-68"><a href="#cb21-68"></a>  <span class="kw">-ms-transform</span><span class="ch">:</span> <span class="fu">translateZ(</span><span class="dv">0</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb21-69"><a href="#cb21-69"></a>  <span class="kw">transform</span><span class="ch">:</span> <span class="fu">translateZ(</span><span class="dv">0</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb21-70"><a href="#cb21-70"></a>  <span class="kw">-webkit-animation-delay</span><span class="ch">:</span> <span class="dv">-0.16</span><span class="dt">s</span><span class="op">;</span></span>
+<span id="cb21-71"><a href="#cb21-71"></a>  <span class="kw">animation-delay</span><span class="ch">:</span> <span class="dv">-0.16</span><span class="dt">s</span><span class="op">;</span></span>
+<span id="cb21-72"><a href="#cb21-72"></a>}</span>
+<span id="cb21-73"><a href="#cb21-73"></a></span>
+<span id="cb21-74"><a href="#cb21-74"></a><span class="fu">.loader</span><span class="in">:before</span><span class="op">,</span></span>
+<span id="cb21-75"><a href="#cb21-75"></a><span class="fu">.loader</span><span class="in">:after</span> {</span>
+<span id="cb21-76"><a href="#cb21-76"></a>  <span class="kw">position</span><span class="ch">:</span> <span class="dv">absolute</span><span class="op">;</span></span>
+<span id="cb21-77"><a href="#cb21-77"></a>  <span class="kw">top</span><span class="ch">:</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb21-78"><a href="#cb21-78"></a>  <span class="kw">content</span><span class="ch">:</span> <span class="st">&quot;&quot;</span><span class="op">;</span></span>
+<span id="cb21-79"><a href="#cb21-79"></a>}</span>
+<span id="cb21-80"><a href="#cb21-80"></a></span>
+<span id="cb21-81"><a href="#cb21-81"></a><span class="fu">.loader</span><span class="in">:before</span> {</span>
+<span id="cb21-82"><a href="#cb21-82"></a>  <span class="kw">left</span><span class="ch">:</span> <span class="dv">-1.5</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb21-83"><a href="#cb21-83"></a>  <span class="kw">-webkit-animation-delay</span><span class="ch">:</span> <span class="dv">-0.32</span><span class="dt">s</span><span class="op">;</span></span>
+<span id="cb21-84"><a href="#cb21-84"></a>  <span class="kw">animation-delay</span><span class="ch">:</span> <span class="dv">-0.32</span><span class="dt">s</span><span class="op">;</span></span>
+<span id="cb21-85"><a href="#cb21-85"></a>}</span>
+<span id="cb21-86"><a href="#cb21-86"></a></span>
+<span id="cb21-87"><a href="#cb21-87"></a><span class="fu">.loader</span><span class="in">:after</span> {</span>
+<span id="cb21-88"><a href="#cb21-88"></a>  <span class="kw">left</span><span class="ch">:</span> <span class="dv">1.5</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb21-89"><a href="#cb21-89"></a>}</span>
+<span id="cb21-90"><a href="#cb21-90"></a></span>
+<span id="cb21-91"><a href="#cb21-91"></a><span class="im">@-webkit-keyframes</span> load1 {</span>
+<span id="cb21-92"><a href="#cb21-92"></a>  0%<span class="op">,</span></span>
+<span id="cb21-93"><a href="#cb21-93"></a>  80%<span class="op">,</span></span>
+<span id="cb21-94"><a href="#cb21-94"></a>  100% {</span>
+<span id="cb21-95"><a href="#cb21-95"></a>    <span class="kw">box-shadow</span><span class="ch">:</span> <span class="dv">0</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb21-96"><a href="#cb21-96"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="dv">4</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb21-97"><a href="#cb21-97"></a>  }</span>
+<span id="cb21-98"><a href="#cb21-98"></a></span>
+<span id="cb21-99"><a href="#cb21-99"></a>  40% {</span>
+<span id="cb21-100"><a href="#cb21-100"></a>    <span class="kw">box-shadow</span><span class="ch">:</span> <span class="dv">0</span> <span class="dv">-2</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb21-101"><a href="#cb21-101"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="dv">5</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb21-102"><a href="#cb21-102"></a>  }</span>
+<span id="cb21-103"><a href="#cb21-103"></a>}</span>
+<span id="cb21-104"><a href="#cb21-104"></a></span>
+<span id="cb21-105"><a href="#cb21-105"></a><span class="im">@keyframes</span> load1 {</span>
+<span id="cb21-106"><a href="#cb21-106"></a>  <span class="dv">0%</span><span class="op">,</span></span>
+<span id="cb21-107"><a href="#cb21-107"></a>  <span class="dv">80%</span><span class="op">,</span></span>
+<span id="cb21-108"><a href="#cb21-108"></a>  <span class="dv">100%</span> {</span>
+<span id="cb21-109"><a href="#cb21-109"></a>    <span class="kw">box-shadow</span><span class="ch">:</span> <span class="dv">0</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb21-110"><a href="#cb21-110"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="dv">4</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb21-111"><a href="#cb21-111"></a>  }</span>
+<span id="cb21-112"><a href="#cb21-112"></a></span>
+<span id="cb21-113"><a href="#cb21-113"></a>  <span class="dv">40%</span> {</span>
+<span id="cb21-114"><a href="#cb21-114"></a>    <span class="kw">box-shadow</span><span class="ch">:</span> <span class="dv">0</span> <span class="dv">-2</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb21-115"><a href="#cb21-115"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="dv">5</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb21-116"><a href="#cb21-116"></a>  }</span>
+<span id="cb21-117"><a href="#cb21-117"></a>}</span></code></pre></div>
+      <!-- ---------------------------------------- -->
+    </main>
+
+    <footer class="markdown-body">
+      <p><a href="https://takeshiwada1980.github.io/Network-Exp-2024/">講義資料のIndexに移動</a></p>
+    </footer>
+
+    <script>
+      window.onload = function () {
+        // ナビゲーション関連
+        let openBtn = document.getElementsByClassName("openbtn")[0];
+        let navPnl = document.getElementById("g-nav");
+        openBtn.onclick = () => {
+          openBtn.classList.toggle("active");
+          navPnl.classList.toggle("panelactive");
+        };
+
+        let items = navPnl.getElementsByTagName("a");
+        Array.from(items).forEach((item) => {
+          item.onclick = () => {
+            openBtn.classList.toggle("active");
+            navPnl.classList.toggle("panelactive");
+          };
+        });
+
+        // マスク処理
+        let maskedSpans = document.getElementsByClassName("masked");
+        Array.from(maskedSpans).forEach((span) => {
+          span.onclick = () => {
+            span.classList.toggle("open");
+          };
+        });
+
+        // data-startfrom 属性の行番号カウンタのリセット
+        document.querySelectorAll("div.sourceCode").forEach(function (div) {
+          var startFrom = div.getAttribute("data-startfrom");
+          if (startFrom != null) {
+            div.style.counterReset = "pg-line " + (startFrom - 1);
+          }
+        });
+
+        // 画像にリンクを付与
+        // let images = document.querySelectorAll("figure img");
+        // Array.from(images).forEach((img) => {
+        //   img.onclick = () => {
+        //     location.href = img.getAttribute("src");
+        //   };
+        // });
+      };
+    </script>
+  </body>
+</html>
