@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <meta name="referrer" content="no-referrer" />
+
+    <script>
+      MathJax = {
+        chtml: {
+          displayAlign: "left",
+          displayIndent: "1em",
+        },
+      };
+    </script>
+
+    
+
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>第06回 後期 4H 実験実習</title>
+  </head>
+
+  <body>
+    <div class="openbtn"><span></span><span></span><span></span></div>
+    <nav id="g-nav">
+      <div id="g-nav-list">
+        <!-- ---------------------------------------- -->
+         <ul>
+<li><a href="#連絡事項" id="toc-連絡事項"><span class="toc-section-number">1</span> 連絡事項</a>
+<ul>
+<li><a href="#報告書2" id="toc-報告書2"><span class="toc-section-number">1.1</span> 報告書2</a></li>
+<li><a href="#授業評価アンケート" id="toc-授業評価アンケート"><span
+class="toc-section-number">1.2</span> 授業評価アンケート</a></li>
+</ul></li>
+<li><a href="#gas-時間に関する演算" id="toc-gas-時間に関する演算"><span
+class="toc-section-number">2</span> GAS: 時間に関する演算</a></li>
+<li><a href="#json形式のレスポンス-1" id="toc-json形式のレスポンス-1"><span
+class="toc-section-number">3</span> JSON形式のレスポンス 1</a></li>
+<li><a href="#json形式のレスポンス-2" id="toc-json形式のレスポンス-2"><span
+class="toc-section-number">4</span> JSON形式のレスポンス 2</a></li>
+<li><a href="#ウェブアプリケーションサンプル" id="toc-ウェブアプリケーションサンプル"><span
+class="toc-section-number">5</span> ウェブアプリケーションサンプル</a></li>
+<li><a href="#報告書作成" id="toc-報告書作成"><span class="toc-section-number">6</span>
+報告書作成</a></li>
+</ul> 
+        <!-- ---------------------------------------- -->
+      </div>
+    </nav>
+
+    <header class="markdown-body">
+      <p>2024-4H 電子機械工学実験実習I (後期) 第06回 講義資料</p>
+      <p>毎週金曜日 5～8時限</p>
+    </header>
+
+    <main class="markdown-body">
+      <!-- ---------------------------------------- -->
+      <h1 data-number="1" id="連絡事項"><span class="header-section-number">1</span> 連絡事項</h1>
+      <h2 data-number="1.1" id="報告書2"><span class="header-section-number">1.1</span> 報告書2</h2>
+      <p>GoogleClassroom に添付する雛形の構成に基づき「<strong>報告書
+      (レポート)</strong>」を作成して提出してください。</p>
+      <ul>
+      <li><strong><em>提出期限</em></strong>: 2025年2月21日 (金) <strong>11:00</strong>
+      <ul>
+      <li>未提出は0点として評価します。評価は「8点」を標準とします。相対的に優れていれば8点以上となり、不足や不備があれば減点となります。</li>
+      <li>期限を過ぎると提出できなくなります。</li>
+      </ul></li>
+      <li><strong><em>提出先</em></strong>: GoogleClassroom
+      <ul>
+      <li>ファイル名は <code>報告書2_NN_フルネーム.docx</code> としてください。PDFに変換せず
+      <strong>Wordのまま提出</strong>してください。
+      <ul>
+      <li><code>NN</code> は、ゼロ埋めの出席番号 (半角) です。出席番号「3番」の場合は
+      <code>03</code> としてください。</li>
+      <li><code>フルネーム</code>
+      は、「姓」と「名」の間に半角スペースを<strong>入れない</strong>でください。</li>
+      <li><code>_</code> は、半角のアンダーバー (アンダースコア)
+      としてください。ハイフンを使用しないでください。</li>
+      <li>ファイル名前のミスは、一律で1.5点減とします。</li>
+      <li>ファイル形式のミスは、一律で3.5点減とします。</li>
+      </ul></li>
+      </ul></li>
+      <li><strong>取組み時間の目安</strong>: 4時間</li>
+      </ul>
+      <h2 data-number="1.2" id="授業評価アンケート"><span class="header-section-number">1.2</span>
+      授業評価アンケート</h2>
+      <ul>
+      <li>前期のテーマを含んだ <strong>全体範囲 (1年間の内容) に関するアンケート</strong>
+      になります。
+      <ul>
+      <li><a href="">こちら</a> から回答してください。</li>
+      </ul></li>
+      </ul>
+      <h1 data-number="2" id="gas-時間に関する演算"><span class="header-section-number">2</span>
+      GAS: 時間に関する演算</h1>
+      <p>Googleスプレッドシートを新規作成して、ファイル名を <code>GasApp05_NN_Name</code>
+      に変更してください。出席番号「3番」の「高専太郎」の場合は <code>GasApp05_03_高専太郎</code>
+      となるはずです。</p>
+      <div class="sourceCode" id="cb1" data-caption="時間の「加算」と「減算」"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">function</span> <span class="fu">calcDatetime_01</span>() {</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="kw">let</span> format <span class="op">=</span> <span class="st">&#39;yyyy年MM月dd日 HH時mm分ss秒&#39;</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="co">// dt1 に現在日時を得る。dt_str1 に dt1 の整形出力を得る。</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>  <span class="kw">let</span> dt1 <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>  <span class="kw">let</span> dt1_str <span class="op">=</span> Utilities<span class="op">.</span><span class="fu">formatDate</span>(dt1<span class="op">,</span> <span class="st">&#39;Asia/Tokyo&#39;</span><span class="op">,</span> format)<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`現在日時は </span><span class="sc">${</span>dt1_str<span class="sc">}</span><span class="vs"> です。`</span>)<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a>  <span class="co">// 1日後の日時を得る。</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>  <span class="kw">let</span> dt2 <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>(dt1<span class="op">.</span><span class="fu">getTime</span>())<span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>  dt2<span class="op">.</span><span class="fu">setDate</span>(dt1<span class="op">.</span><span class="fu">getDate</span>() <span class="op">+</span> <span class="dv">1</span>)<span class="op">;</span> <span class="co">// 1日後</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>  <span class="kw">let</span> dt2_str <span class="op">=</span> Utilities<span class="op">.</span><span class="fu">formatDate</span>(dt2<span class="op">,</span> <span class="st">&#39;Asia/Tokyo&#39;</span><span class="op">,</span> format)<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`</span><span class="sc">${</span>dt1_str<span class="sc">}</span><span class="vs"> の1日後は </span><span class="sc">${</span>dt2_str<span class="sc">}</span><span class="vs"> です。`</span>)<span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a></span>
+<span id="cb1-16"><a href="#cb1-16"></a>  <span class="co">// 23時間前の日時を得る。</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a>  <span class="kw">let</span> dt3 <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>(dt1<span class="op">.</span><span class="fu">getTime</span>())<span class="op">;</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a>  dt3<span class="op">.</span><span class="fu">setHours</span>(dt1<span class="op">.</span><span class="fu">getHours</span>() <span class="op">-</span> <span class="dv">23</span>)<span class="op">;</span> <span class="co">// 23時間前</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a>  <span class="kw">let</span> dt3_str <span class="op">=</span> Utilities<span class="op">.</span><span class="fu">formatDate</span>(dt3<span class="op">,</span> <span class="st">&#39;Asia/Tokyo&#39;</span><span class="op">,</span> format)<span class="op">;</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`</span><span class="sc">${</span>dt1_str<span class="sc">}</span><span class="vs"> の23時間前は </span><span class="sc">${</span>dt3_str<span class="sc">}</span><span class="vs"> です。`</span>)<span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a>}</span></code></pre></div>
+      <div class="sourceCode" id="cb2" data-caption="指定時刻までの残り時間の計算 1"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">function</span> <span class="fu">calcDatetime_02</span>() {</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="kw">let</span> dt1 <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>(<span class="st">&#39;2025/2/21 11:00:00&#39;</span>)<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="kw">let</span> dt2 <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>  <span class="kw">let</span> hours <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>((dt1 <span class="op">-</span> dt2) <span class="op">/</span> (<span class="dv">1000</span> <span class="op">*</span> <span class="dv">60</span> <span class="op">*</span> <span class="dv">60</span>))<span class="op">;</span> <span class="co">// ミリ秒を時間に変換</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`あと </span><span class="sc">${</span>hours<span class="sc">}</span><span class="vs"> 時間`</span>)<span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>}</span></code></pre></div>
+      <div class="sourceCode" id="cb3" data-caption="指定時刻までの残り時間の計算 2"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">function</span> <span class="fu">calcDatetime_03</span>() {</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="kw">let</span> dt1 <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>(<span class="st">&#39;2025/2/21 11:00:00&#39;</span>)<span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="kw">let</span> dt2 <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="kw">let</span> ts <span class="op">=</span> dt1 <span class="op">-</span> dt2<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="kw">let</span> hours <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(ts <span class="op">/</span> (<span class="dv">1000</span> <span class="op">*</span> <span class="dv">60</span> <span class="op">*</span> <span class="dv">60</span>))<span class="op">;</span> <span class="co">// ミリ秒を時間に変換して整数部分を取得</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="kw">let</span> minutes <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>((ts <span class="op">%</span> (<span class="dv">1000</span> <span class="op">*</span> <span class="dv">60</span> <span class="op">*</span> <span class="dv">60</span>)) <span class="op">/</span> (<span class="dv">1000</span> <span class="op">*</span> <span class="dv">60</span>))<span class="op">;</span> <span class="co">// 残りのミリ秒を分に変換</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`あと </span><span class="sc">${</span>hours<span class="sc">}</span><span class="vs"> 時間 </span><span class="sc">${</span>minutes<span class="sc">}</span><span class="vs"> 分`</span>)<span class="op">;</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>}</span></code></pre></div>
+      <h1 data-number="3" id="json形式のレスポンス-1"><span class="header-section-number">3</span>
+      JSON形式のレスポンス 1</h1>
+      <p>Googleスプレッドシートを新規作成して、ファイル名を <code>GasApp06_NN_Name</code>
+      に変更してください。出席番号「3番」の「高専太郎」の場合は <code>GasApp06_03_高専太郎</code>
+      となるはずです。</p>
+      <p>ウェブAPI のレスポンス形式としては JSON : JavaScript Object Notation
+      が広く採用されています。ウェブAPI を呼び出す Python や JavaScript
+      においても、JSON形式でレスポンスを受けとれると、その後の処理が容易になります。</p>
+      <div class="sourceCode" id="cb4" data-caption="JSON形式のレスポンス"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">function</span> <span class="fu">getCard_01</span>() {</span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="kw">let</span> cardRank <span class="op">=</span> [<span class="st">&#39;SSR&#39;</span><span class="op">,</span> <span class="st">&#39;SR&#39;</span><span class="op">,</span> <span class="st">&#39;R&#39;</span><span class="op">,</span> <span class="st">&#39;N&#39;</span>]<span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="kw">let</span> i <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>() <span class="op">*</span> cardRank<span class="op">.</span><span class="at">length</span>)<span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="cf">return</span> cardRank[i]<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>}</span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="kw">function</span> <span class="fu">doGet</span>(e) {</span>
+<span id="cb4-8"><a href="#cb4-8"></a>  <span class="kw">let</span> n <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>  <span class="kw">let</span> tmp <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>  <span class="cf">for</span>(<span class="kw">let</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span>i<span class="op">&lt;</span>n<span class="op">;</span>i<span class="op">++</span>){</span>
+<span id="cb4-11"><a href="#cb4-11"></a>    tmp[i]<span class="op">=</span><span class="fu">getCard_01</span>()<span class="op">;</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>  }</span>
+<span id="cb4-13"><a href="#cb4-13"></a>  <span class="kw">let</span> res <span class="op">=</span> { <span class="dt">code</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">msg</span><span class="op">:</span> <span class="vs">`ガチャを </span><span class="sc">${</span>n<span class="sc">}</span><span class="vs"> 回 (</span><span class="sc">${</span>n<span class="op">*</span><span class="dv">300</span><span class="sc">}</span><span class="vs">円分) 実行しました。`</span><span class="op">,</span> <span class="dt">cards</span><span class="op">:</span> tmp }<span class="op">;</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a>  <span class="kw">let</span> jsonStr <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(res)<span class="op">;</span> <span class="co">// JSON文字列に変換</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(jsonStr)<span class="op">;</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a>  <span class="cf">return</span> ContentService<span class="op">.</span><span class="fu">createTextOutput</span>(jsonStr)<span class="op">;</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a>}</span></code></pre></div>
+      <p>上記のプログラムを実装できたら<a
+      href="lecture04.html#http-get-をトリガーとする関数の実行">ウェブアプリとしてデプロイ</a>してください。</p>
+      <p>次に GoogleColab で実装してください。</p>
+      <div class="sourceCode" id="cb5"
+      data-caption="GoogleColab.で実装 (JSON型のレスポンスの処理)"><pre
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="im">import</span> json       <span class="co"># 要インポート</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="im">import</span> requests</span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a>base_URL <span class="op">=</span> <span class="st">&#39;https://script.google.com/macros/s/&#39;</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>deploy_ID <span class="op">=</span> <span class="st">&#39;AKfycxxxxxxxxxxxxxxxx&#39;</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>URL <span class="op">=</span> base_URL <span class="op">+</span> deploy_ID <span class="op">+</span> <span class="st">&#39;/exec&#39;</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a></span>
+<span id="cb5-9"><a href="#cb5-9"></a>res1 <span class="op">=</span> requests.get(URL).text</span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="bu">print</span>(<span class="ss">f&#39;tyep(res1) =&gt; </span><span class="sc">{</span><span class="bu">type</span>(res1)<span class="sc">}</span><span class="ss">&#39;</span>)</span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="bu">print</span>(<span class="ss">f&#39;res =&gt; </span><span class="sc">{</span>res1<span class="sc">}</span><span class="ss">&#39;</span>,end<span class="op">=</span><span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">&#39;</span>)</span>
+<span id="cb5-12"><a href="#cb5-12"></a></span>
+<span id="cb5-13"><a href="#cb5-13"></a>res2 <span class="op">=</span> json.loads(res1) <span class="co"># JSONのデシリアライズ</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="bu">print</span>(<span class="ss">f&#39;tyep(res2) =&gt; </span><span class="sc">{</span><span class="bu">type</span>(res2)<span class="sc">}</span><span class="ss">&#39;</span>) <span class="co"># 辞書型</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="bu">print</span>(<span class="bu">type</span>(res2[<span class="st">&#39;code&#39;</span>]))   <span class="co"># 整数型</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="bu">print</span>(<span class="bu">type</span>(res2[<span class="st">&#39;msg&#39;</span>]))    <span class="co"># 文字列型</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="bu">print</span>(<span class="bu">type</span>(res2[<span class="st">&#39;cards&#39;</span>]))  <span class="co"># リスト型</span></span></code></pre></div>
+      <h1 data-number="4" id="json形式のレスポンス-2"><span class="header-section-number">4</span>
+      JSON形式のレスポンス 2</h1>
+      <p><a href="lecture05.html#ウェブアプリの構築">前回講義</a>で構築した
+      <code>GasApp04_NN_Name</code> を使用します。シートタブと、GASタブをロードしてください。</p>
+      <ul>
+      <li><a href="https://script.google.com/home">プロジェクト管理ページ</a>- <a
+      href="https://script.google.com/home">プロジェクト管理ページ</a></li>
+      </ul>
+      <p>以下のプログラムを参考に <code>GasApp04_NN_Name</code>
+      からのレスポンスを取得して表示してください。</p>
+      <div class="sourceCode" id="cb6" data-caption="JSONのデコード (参考)"><pre
+      class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">import</span> json</span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a>json_str <span class="op">=</span> <span class="st">&#39;{&quot;code&quot;:0,&quot;msg&quot;:&quot;出勤をシステムに登録しました。&quot;}&#39;</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>dict_obj <span class="op">=</span> json.loads(json_str)</span>
+<span id="cb6-5"><a href="#cb6-5"></a></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="bu">print</span>(<span class="bu">type</span>(dict_obj))    <span class="co"># =&gt; &lt;class &#39;dict&#39;&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="bu">print</span>(dict_obj[<span class="st">&#39;code&#39;</span>])        <span class="co"># =&gt; 0</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="bu">print</span>(<span class="bu">type</span>(dict_obj[<span class="st">&#39;code&#39;</span>]))  <span class="co"># =&gt; &lt;class &#39;int&#39;&gt;</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="bu">print</span>(dict_obj[<span class="st">&#39;msg&#39;</span>])         <span class="co"># =&gt; 出勤をシステムに登録しました。</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="bu">print</span>(<span class="bu">type</span>(dict_obj[<span class="st">&#39;msg&#39;</span>]))   <span class="co"># =&gt; &lt;class &#39;str&#39;&gt;</span></span></code></pre></div>
+      <h1 data-number="5" id="ウェブアプリケーションサンプル"><span
+      class="header-section-number">5</span> ウェブアプリケーションサンプル</h1>
+      <p>前回講義では、HTML/CSS をローカル環境に配置して動作させました。ここでは、HTML/CSS も GAS
+      に配置するようにします。これにより、スマートフォンやPCから24時間利用可能な
+      <strong>ウェブアプリ</strong> とすることができます。</p>
+      <p>Googleスプレッドシートを新規作成して、ファイル名を <code>GasApp07_NN_Name</code>
+      に変更してください。出席番号「3番」の「高専太郎」の場合は <code>GasApp07_03_高専太郎</code>
+      となるはずです。</p>
+      <p>「GASタブ」に移動して、<code>コード.gs</code> の関数 <code>doGet</code>
+      を次の内容に差し替えてください。また、GASプロジェクト内に <code>app.html</code> および
+      <code>style.html</code> を作成してデプロイしてください。</p>
+      <div class="sourceCode" id="cb7" data-caption="コード.gs（抜粋）"><pre
+      class="sourceCode numberSource js numberLines"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">function</span> <span class="fu">helloWorld</span>() {</span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="kw">let</span> r <span class="op">=</span> SpreadsheetApp<span class="op">.</span><span class="fu">getActiveSheet</span>()<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;A1&#39;</span>)<span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>  r<span class="op">.</span><span class="fu">setValue</span>(<span class="st">&#39;Hello World!&#39;</span>)<span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Hello World!&#39;</span>)<span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>}</span>
+<span id="cb7-6"><a href="#cb7-6"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="kw">function</span> <span class="fu">getDateTimeString</span>() {</span>
+<span id="cb7-8"><a href="#cb7-8"></a>  <span class="kw">let</span> now <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">;</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a>  <span class="kw">let</span> format <span class="op">=</span> <span class="st">&#39;yyyy年MM月dd日 HH時mm分ss秒&#39;</span><span class="op">;</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a>  <span class="cf">return</span> Utilities<span class="op">.</span><span class="fu">formatDate</span>(now<span class="op">,</span> <span class="st">&#39;Asia/Tokyo&#39;</span><span class="op">,</span> format)<span class="op">;</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a>}</span>
+<span id="cb7-12"><a href="#cb7-12"></a></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="kw">function</span> <span class="fu">writeLog</span>(action<span class="op">,</span> memo) {</span>
+<span id="cb7-14"><a href="#cb7-14"></a>  <span class="kw">let</span> st <span class="op">=</span> SpreadsheetApp<span class="op">.</span><span class="fu">getActiveSheet</span>()<span class="op">;</span></span>
+<span id="cb7-15"><a href="#cb7-15"></a>  st<span class="op">.</span><span class="fu">insertRowBefore</span>(<span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a>  <span class="kw">let</span> c <span class="op">=</span> st<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;A2&#39;</span>)</span>
+<span id="cb7-17"><a href="#cb7-17"></a>  c<span class="op">.</span><span class="fu">setNumberFormat</span>(<span class="st">&#39;@&#39;</span>)<span class="op">;</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a>  c<span class="op">.</span><span class="fu">setValue</span>(<span class="fu">getDateTimeString</span>())<span class="op">;</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a></span>
+<span id="cb7-20"><a href="#cb7-20"></a>  c <span class="op">=</span> st<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;B2&#39;</span>)<span class="op">;</span></span>
+<span id="cb7-21"><a href="#cb7-21"></a>  c<span class="op">.</span><span class="fu">setValue</span>(action)<span class="op">;</span></span>
+<span id="cb7-22"><a href="#cb7-22"></a></span>
+<span id="cb7-23"><a href="#cb7-23"></a>  <span class="cf">if</span> (memo<span class="op">.</span><span class="at">length</span> <span class="op">!=</span> <span class="dv">0</span>) {</span>
+<span id="cb7-24"><a href="#cb7-24"></a>    c <span class="op">=</span> st<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;C2&#39;</span>)<span class="op">;</span></span>
+<span id="cb7-25"><a href="#cb7-25"></a>    c<span class="op">.</span><span class="fu">setValue</span>(memo)<span class="op">;</span></span>
+<span id="cb7-26"><a href="#cb7-26"></a>  }</span>
+<span id="cb7-27"><a href="#cb7-27"></a>}</span>
+<span id="cb7-28"><a href="#cb7-28"></a></span>
+<span id="cb7-29"><a href="#cb7-29"></a><span class="kw">function</span> <span class="fu">readLatestLog</span>() {</span>
+<span id="cb7-30"><a href="#cb7-30"></a>  <span class="kw">let</span> st <span class="op">=</span> SpreadsheetApp<span class="op">.</span><span class="fu">getActiveSheet</span>()<span class="op">;</span></span>
+<span id="cb7-31"><a href="#cb7-31"></a>  <span class="kw">let</span> d <span class="op">=</span> st<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;A2:C2&#39;</span>)<span class="op">.</span><span class="fu">getValues</span>()<span class="op">;</span></span>
+<span id="cb7-32"><a href="#cb7-32"></a>  <span class="kw">let</span> msg <span class="op">=</span> <span class="vs">`</span><span class="sc">${</span>d[<span class="dv">0</span>][<span class="dv">0</span>]<span class="sc">}</span><span class="vs">「</span><span class="sc">${</span>d[<span class="dv">0</span>][<span class="dv">1</span>]<span class="sc">}</span><span class="vs">`</span></span>
+<span id="cb7-33"><a href="#cb7-33"></a>  <span class="cf">if</span> (d[<span class="dv">0</span>][<span class="dv">2</span>]<span class="op">.</span><span class="at">length</span> <span class="op">!=</span> <span class="dv">0</span>) {</span>
+<span id="cb7-34"><a href="#cb7-34"></a>    msg <span class="op">+=</span> <span class="vs">`（</span><span class="sc">${</span>d[<span class="dv">0</span>][<span class="dv">2</span>]<span class="sc">}</span><span class="vs">）」が最新の記録です。`</span><span class="op">;</span></span>
+<span id="cb7-35"><a href="#cb7-35"></a>  } <span class="cf">else</span> {</span>
+<span id="cb7-36"><a href="#cb7-36"></a>    msg <span class="op">+=</span> <span class="st">&#39;」が直前の記録です。&#39;</span><span class="op">;</span></span>
+<span id="cb7-37"><a href="#cb7-37"></a>  }</span>
+<span id="cb7-38"><a href="#cb7-38"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(msg)<span class="op">;</span></span>
+<span id="cb7-39"><a href="#cb7-39"></a>  <span class="cf">return</span> msg<span class="op">;</span></span>
+<span id="cb7-40"><a href="#cb7-40"></a>}</span>
+<span id="cb7-41"><a href="#cb7-41"></a></span>
+<span id="cb7-42"><a href="#cb7-42"></a><span class="kw">function</span> <span class="fu">doGet</span>(e) {</span>
+<span id="cb7-43"><a href="#cb7-43"></a></span>
+<span id="cb7-44"><a href="#cb7-44"></a>  <span class="cf">if</span> (e <span class="op">==</span> <span class="kw">undefined</span>) {</span>
+<span id="cb7-45"><a href="#cb7-45"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">warn</span>(<span class="st">&#39;この関数は HTTP GET から実行してください。&#39;</span>)<span class="op">;</span></span>
+<span id="cb7-46"><a href="#cb7-46"></a>    <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb7-47"><a href="#cb7-47"></a>  }</span>
+<span id="cb7-48"><a href="#cb7-48"></a></span>
+<span id="cb7-49"><a href="#cb7-49"></a>  <span class="kw">let</span> action <span class="op">=</span> e<span class="op">.</span><span class="at">parameter</span><span class="op">.</span><span class="at">action</span><span class="op">;</span></span>
+<span id="cb7-50"><a href="#cb7-50"></a>  <span class="kw">let</span> memo <span class="op">=</span> e<span class="op">.</span><span class="at">parameter</span><span class="op">.</span><span class="at">memo</span><span class="op">;</span></span>
+<span id="cb7-51"><a href="#cb7-51"></a>  <span class="cf">if</span> (memo <span class="op">==</span> <span class="kw">undefined</span>) {</span>
+<span id="cb7-52"><a href="#cb7-52"></a>    memo <span class="op">=</span> <span class="st">&#39;&#39;</span><span class="op">;</span></span>
+<span id="cb7-53"><a href="#cb7-53"></a>  }</span>
+<span id="cb7-54"><a href="#cb7-54"></a>  <span class="kw">let</span> msg <span class="op">=</span> <span class="st">&#39;&#39;</span><span class="op">;</span></span>
+<span id="cb7-55"><a href="#cb7-55"></a>  <span class="kw">let</span> code <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-56"><a href="#cb7-56"></a>  <span class="cf">switch</span> (action) {</span>
+<span id="cb7-57"><a href="#cb7-57"></a>    <span class="cf">case</span> <span class="st">&#39;a&#39;</span><span class="op">:</span></span>
+<span id="cb7-58"><a href="#cb7-58"></a>      <span class="fu">writeLog</span>(<span class="st">&#39;出勤&#39;</span><span class="op">,</span> memo)<span class="op">;</span></span>
+<span id="cb7-59"><a href="#cb7-59"></a>      msg <span class="op">=</span> <span class="st">&#39;出勤をシステムに登録しました。&#39;</span></span>
+<span id="cb7-60"><a href="#cb7-60"></a>      <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb7-61"><a href="#cb7-61"></a>    <span class="cf">case</span> <span class="st">&#39;b&#39;</span><span class="op">:</span></span>
+<span id="cb7-62"><a href="#cb7-62"></a>      <span class="fu">writeLog</span>(<span class="st">&#39;退勤&#39;</span><span class="op">,</span> memo)<span class="op">;</span></span>
+<span id="cb7-63"><a href="#cb7-63"></a>      msg <span class="op">=</span> <span class="st">&#39;退勤をシステムに登録しました。&#39;</span></span>
+<span id="cb7-64"><a href="#cb7-64"></a>      <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb7-65"><a href="#cb7-65"></a>    <span class="cf">case</span> <span class="st">&#39;c&#39;</span><span class="op">:</span></span>
+<span id="cb7-66"><a href="#cb7-66"></a>      msg <span class="op">=</span> <span class="fu">readLatestLog</span>()<span class="op">;</span></span>
+<span id="cb7-67"><a href="#cb7-67"></a>      code <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb7-68"><a href="#cb7-68"></a>      <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb7-69"><a href="#cb7-69"></a>    <span class="cf">default</span><span class="op">:</span></span>
+<span id="cb7-70"><a href="#cb7-70"></a>      <span class="cf">return</span> HtmlService<span class="op">.</span><span class="fu">createTemplateFromFile</span>(<span class="st">&#39;app&#39;</span>)<span class="op">.</span><span class="fu">evaluate</span>()<span class="op">;</span></span>
+<span id="cb7-71"><a href="#cb7-71"></a>      <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb7-72"><a href="#cb7-72"></a>  }</span>
+<span id="cb7-73"><a href="#cb7-73"></a></span>
+<span id="cb7-74"><a href="#cb7-74"></a>  <span class="kw">let</span> res <span class="op">=</span> { <span class="dt">code</span><span class="op">:</span> code<span class="op">,</span> <span class="dt">msg</span><span class="op">:</span> msg }<span class="op">;</span></span>
+<span id="cb7-75"><a href="#cb7-75"></a>  <span class="kw">let</span> jsonStr <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(res)<span class="op">;</span> <span class="co">// JSON文字列に変換</span></span>
+<span id="cb7-76"><a href="#cb7-76"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(jsonStr)<span class="op">;</span></span>
+<span id="cb7-77"><a href="#cb7-77"></a>  <span class="cf">return</span> ContentService<span class="op">.</span><span class="fu">createTextOutput</span>(jsonStr)<span class="op">;</span></span>
+<span id="cb7-78"><a href="#cb7-78"></a>}</span></code></pre></div>
+      <p>GASプロジェクト内部に「HTMLファイル」を配置して <code>HtmlService</code>
+      から読み込む場合、<span
+      class="masked">テンプレート文字列</span>が適切に機能しないので注意してください。</p>
+      <p><code>app.html</code> の <strong>第16行目</strong> のリンク
+      (<code>xxxx</code>の部分)、<strong>第34行目</strong> の <code>API_ID</code>
+      は各自のデプロイにあわせて変更してください。</p>
+      <div class="sourceCode" id="cb8" data-caption="app.html"><pre
+      class="sourceCode numberSource html numberLines"><code class="sourceCode html"><span id="cb8-1"><a href="#cb8-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">&quot;ja&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="dt">&lt;</span><span class="kw">base</span><span class="ot"> target</span><span class="op">=</span><span class="st">&quot;_top&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">&quot;utf-8&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>WebAppTemplate<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;viewport&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;width=device-width, initial-scale=1.0, user-scalable=yes&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;https://fonts.googleapis.com/css2?family=Yusei+Magic</span><span class="er">&amp;</span><span class="st">display=swap&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a>  <span class="kw">&lt;?</span>!= HtmlService.createHtmlOutputFromFile(&#39;style&#39;).getContent(); <span class="kw">?&gt;</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a></span>
+<span id="cb8-14"><a href="#cb8-14"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a>  <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>アプリのタイトル<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;https://drive.google.com/thumbnail?sz=w1000-h1000</span><span class="er">&amp;</span><span class="st">id=xxxx&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>アプリの説明<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb8-18"><a href="#cb8-18"></a></span>
+<span id="cb8-19"><a href="#cb8-19"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;InputUiDiv&quot;</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;input-ui&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a>    <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;Button1&quot;</span><span class="dt">&gt;</span>出勤打刻<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb8-21"><a href="#cb8-21"></a>    <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;Button2&quot;</span><span class="dt">&gt;</span>退勤打刻<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb8-22"><a href="#cb8-22"></a>    <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;Button3&quot;</span><span class="dt">&gt;</span>直前の記録の確認<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb8-23"><a href="#cb8-23"></a>    <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;text&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;TextBox&quot;</span><span class="ot"> placeholder</span><span class="op">=</span><span class="st">&quot;Enter memo here.&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
+<span id="cb8-24"><a href="#cb8-24"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb8-25"><a href="#cb8-25"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;IsBusy&quot;</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;loader&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb8-26"><a href="#cb8-26"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;ResMsg&quot;</span><span class="dt">&gt;</span>ボタンを押下してください。<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb8-27"><a href="#cb8-27"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb8-28"><a href="#cb8-28"></a></span>
+<span id="cb8-29"><a href="#cb8-29"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb8-30"><a href="#cb8-30"></a>  <span class="bu">window</span><span class="op">.</span><span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span> () {</span>
+<span id="cb8-31"><a href="#cb8-31"></a>      <span class="kw">function</span> <span class="fu">$</span>(e) {</span>
+<span id="cb8-32"><a href="#cb8-32"></a>        <span class="cf">return</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(e)<span class="op">;</span></span>
+<span id="cb8-33"><a href="#cb8-33"></a>      }</span>
+<span id="cb8-34"><a href="#cb8-34"></a>      <span class="kw">const</span> API_ID <span class="op">=</span> <span class="st">&quot;xxxxxxxxxxxxx&quot;</span><span class="op">;</span></span>
+<span id="cb8-35"><a href="#cb8-35"></a>      <span class="kw">const</span> API_URL <span class="op">=</span> <span class="st">&quot;https://script.google.com/macros/s/&quot;</span> <span class="op">+</span> API_ID <span class="op">+</span><span class="st">&quot;/exec&quot;</span><span class="op">;</span></span>
+<span id="cb8-36"><a href="#cb8-36"></a></span>
+<span id="cb8-37"><a href="#cb8-37"></a>      <span class="kw">function</span> <span class="fu">GetData</span>(action) {</span>
+<span id="cb8-38"><a href="#cb8-38"></a>        <span class="fu">$</span>(<span class="st">&quot;#ResMsg&quot;</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="st">&quot;...処理中...&quot;</span><span class="op">;</span></span>
+<span id="cb8-39"><a href="#cb8-39"></a>        <span class="fu">$</span>(<span class="st">&quot;#IsBusy&quot;</span>)<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">display</span> <span class="op">=</span> <span class="st">&quot;flex&quot;</span><span class="op">;</span></span>
+<span id="cb8-40"><a href="#cb8-40"></a>        <span class="fu">$</span>(<span class="st">&quot;#InputUiDiv&quot;</span>)<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">display</span> <span class="op">=</span> <span class="st">&quot;none&quot;</span><span class="op">;</span></span>
+<span id="cb8-41"><a href="#cb8-41"></a></span>
+<span id="cb8-42"><a href="#cb8-42"></a>        <span class="kw">let</span> URL <span class="op">=</span> API_URL<span class="op">+</span> <span class="st">&quot;?action=&quot;</span> <span class="op">+</span>action<span class="op">;</span></span>
+<span id="cb8-43"><a href="#cb8-43"></a>        <span class="kw">let</span> memo <span class="op">=</span> <span class="fu">$</span>(<span class="st">&quot;#TextBox&quot;</span>)<span class="op">.</span><span class="at">value</span><span class="op">;</span></span>
+<span id="cb8-44"><a href="#cb8-44"></a>        <span class="cf">if</span> (memo<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb8-45"><a href="#cb8-45"></a>          <span class="kw">let</span> encodedMemo <span class="op">=</span> <span class="pp">encodeURIComponent</span>(memo)<span class="op">;</span></span>
+<span id="cb8-46"><a href="#cb8-46"></a>          URL <span class="op">+=</span> <span class="st">&quot;&amp;memo=&quot;</span> <span class="op">+</span> encodedMemo<span class="op">;</span></span>
+<span id="cb8-47"><a href="#cb8-47"></a>          <span class="fu">$</span>(<span class="st">&quot;#TextBox&quot;</span>)<span class="op">.</span><span class="at">value</span> <span class="op">=</span> <span class="st">&quot;&quot;</span><span class="op">;</span></span>
+<span id="cb8-48"><a href="#cb8-48"></a>        }</span>
+<span id="cb8-49"><a href="#cb8-49"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(URL)<span class="op">;</span></span>
+<span id="cb8-50"><a href="#cb8-50"></a>        <span class="fu">fetch</span>(URL<span class="op">,</span> { <span class="dt">method</span><span class="op">:</span> <span class="st">&quot;GET&quot;</span> })</span>
+<span id="cb8-51"><a href="#cb8-51"></a>          <span class="op">.</span><span class="fu">then</span>((res) <span class="kw">=&gt;</span> res<span class="op">.</span><span class="fu">text</span>())</span>
+<span id="cb8-52"><a href="#cb8-52"></a>          <span class="op">.</span><span class="fu">then</span>((res) <span class="kw">=&gt;</span> {</span>
+<span id="cb8-53"><a href="#cb8-53"></a>            <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(res)<span class="op">;</span></span>
+<span id="cb8-54"><a href="#cb8-54"></a>            <span class="kw">let</span> obj <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">parse</span>(res)<span class="op">;</span></span>
+<span id="cb8-55"><a href="#cb8-55"></a>            <span class="fu">$</span>(<span class="st">&quot;#ResMsg&quot;</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="vs">`</span><span class="sc">${</span>obj<span class="op">.</span><span class="at">msg</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb8-56"><a href="#cb8-56"></a>            <span class="fu">$</span>(<span class="st">&quot;#IsBusy&quot;</span>)<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">display</span> <span class="op">=</span> <span class="st">&quot;none&quot;</span><span class="op">;</span></span>
+<span id="cb8-57"><a href="#cb8-57"></a>            <span class="fu">$</span>(<span class="st">&quot;#InputUiDiv&quot;</span>)<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">display</span> <span class="op">=</span> <span class="st">&quot;flex&quot;</span><span class="op">;</span></span>
+<span id="cb8-58"><a href="#cb8-58"></a>          })<span class="op">;</span></span>
+<span id="cb8-59"><a href="#cb8-59"></a>      }</span>
+<span id="cb8-60"><a href="#cb8-60"></a></span>
+<span id="cb8-61"><a href="#cb8-61"></a>      <span class="fu">$</span>(<span class="st">&quot;#Button1&quot;</span>)<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> GetData<span class="op">.</span><span class="fu">bind</span>(<span class="kw">null</span><span class="op">,</span> <span class="st">&quot;a&quot;</span>)<span class="op">;</span></span>
+<span id="cb8-62"><a href="#cb8-62"></a>      <span class="fu">$</span>(<span class="st">&quot;#Button2&quot;</span>)<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> GetData<span class="op">.</span><span class="fu">bind</span>(<span class="kw">null</span><span class="op">,</span> <span class="st">&quot;b&quot;</span>)<span class="op">;</span></span>
+<span id="cb8-63"><a href="#cb8-63"></a>      <span class="fu">$</span>(<span class="st">&quot;#Button3&quot;</span>)<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> GetData<span class="op">.</span><span class="fu">bind</span>(<span class="kw">null</span><span class="op">,</span> <span class="st">&quot;c&quot;</span>)<span class="op">;</span></span>
+<span id="cb8-64"><a href="#cb8-64"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;JSプログラムの読込み完了&quot;</span>)<span class="op">;</span></span>
+<span id="cb8-65"><a href="#cb8-65"></a>    }<span class="op">;</span></span>
+<span id="cb8-66"><a href="#cb8-66"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb8-67"><a href="#cb8-67"></a></span>
+<span id="cb8-68"><a href="#cb8-68"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
+      <div class="sourceCode" id="cb9" data-caption="style.html"><pre
+      class="sourceCode numberSource html numberLines"><code class="sourceCode html"><span id="cb9-1"><a href="#cb9-1"></a><span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>  html {</span>
+<span id="cb9-3"><a href="#cb9-3"></a>    <span class="kw">-ms-text-size-adjust</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>    <span class="kw">-webkit-text-size-adjust</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a>    <span class="kw">font-family</span><span class="ch">:</span> <span class="st">&quot;Yusei Magic&quot;</span><span class="op">,</span> <span class="dv">sans-serif</span><span class="op">;</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a>  }</span>
+<span id="cb9-7"><a href="#cb9-7"></a></span>
+<span id="cb9-8"><a href="#cb9-8"></a>  body {</span>
+<span id="cb9-9"><a href="#cb9-9"></a>    <span class="kw">line-height</span><span class="ch">:</span> <span class="dv">1.5</span><span class="op">;</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a>    word-wrap<span class="ch">:</span> <span class="dv">break-word</span><span class="op">;</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a>    <span class="kw">box-sizing</span><span class="ch">:</span> <span class="dv">border-box</span><span class="op">;</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a>    <span class="kw">max-width</span><span class="ch">:</span> <span class="dv">980</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb9-13"><a href="#cb9-13"></a>    <span class="kw">margin</span><span class="ch">:</span> <span class="dv">2</span><span class="dt">em</span> <span class="bu">auto</span><span class="op">;</span></span>
+<span id="cb9-14"><a href="#cb9-14"></a>    <span class="kw">padding</span><span class="ch">:</span> <span class="dv">0</span><span class="dt">px</span> <span class="dv">50</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb9-15"><a href="#cb9-15"></a>    <span class="kw">text-align</span><span class="ch">:</span> <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb9-16"><a href="#cb9-16"></a>  }</span>
+<span id="cb9-17"><a href="#cb9-17"></a></span>
+<span id="cb9-18"><a href="#cb9-18"></a>  p {</span>
+<span id="cb9-19"><a href="#cb9-19"></a>    <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">1.3</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb9-20"><a href="#cb9-20"></a>    <span class="kw">margin</span><span class="ch">:</span> <span class="dv">0.8</span><span class="dt">rem</span> <span class="dv">0</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb9-21"><a href="#cb9-21"></a>  }</span>
+<span id="cb9-22"><a href="#cb9-22"></a></span>
+<span id="cb9-23"><a href="#cb9-23"></a>  <span class="im">@media</span> <span class="fu">(</span><span class="kw">max-width</span><span class="ch">:</span> <span class="dv">767</span><span class="dt">px</span><span class="fu">)</span> {</span>
+<span id="cb9-24"><a href="#cb9-24"></a>    body {</span>
+<span id="cb9-25"><a href="#cb9-25"></a>      <span class="kw">padding-left</span><span class="ch">:</span> <span class="dv">15</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb9-26"><a href="#cb9-26"></a>      <span class="kw">padding-right</span><span class="ch">:</span> <span class="dv">15</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb9-27"><a href="#cb9-27"></a>    }</span>
+<span id="cb9-28"><a href="#cb9-28"></a>  }</span>
+<span id="cb9-29"><a href="#cb9-29"></a></span>
+<span id="cb9-30"><a href="#cb9-30"></a>  h1 {</span>
+<span id="cb9-31"><a href="#cb9-31"></a>    <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">2</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb9-32"><a href="#cb9-32"></a>  }</span>
+<span id="cb9-33"><a href="#cb9-33"></a></span>
+<span id="cb9-34"><a href="#cb9-34"></a>  img {</span>
+<span id="cb9-35"><a href="#cb9-35"></a>    <span class="kw">max-width</span><span class="ch">:</span> <span class="dv">400</span><span class="dt">px</span><span class="op">;</span> </span>
+<span id="cb9-36"><a href="#cb9-36"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="bu">auto</span><span class="op">;</span></span>
+<span id="cb9-37"><a href="#cb9-37"></a>    <span class="kw">cursor</span><span class="ch">:</span> <span class="dv">pointer</span><span class="op">;</span></span>
+<span id="cb9-38"><a href="#cb9-38"></a>    <span class="kw">pointer-events</span><span class="ch">:</span> <span class="dv">none</span><span class="op">;</span></span>
+<span id="cb9-39"><a href="#cb9-39"></a>    <span class="kw">box-shadow</span><span class="ch">:</span> <span class="fu">rgba(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0.35</span><span class="fu">)</span> <span class="dv">0</span><span class="dt">px</span> <span class="dv">5</span><span class="dt">px</span> <span class="dv">15</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb9-40"><a href="#cb9-40"></a>    <span class="kw">border-radius</span><span class="ch">:</span> <span class="dv">20</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb9-41"><a href="#cb9-41"></a>  }</span>
+<span id="cb9-42"><a href="#cb9-42"></a></span>
+<span id="cb9-43"><a href="#cb9-43"></a>  div<span class="fu">.input-ui</span> {</span>
+<span id="cb9-44"><a href="#cb9-44"></a>    <span class="kw">width</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb9-45"><a href="#cb9-45"></a>    <span class="co">/* 親コンテナの幅を100%に設定 */</span></span>
+<span id="cb9-46"><a href="#cb9-46"></a>    <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
+<span id="cb9-47"><a href="#cb9-47"></a>    <span class="co">/* Flexboxを使用して要素を配置 */</span></span>
+<span id="cb9-48"><a href="#cb9-48"></a>    <span class="kw">flex-direction</span><span class="ch">:</span> <span class="dv">column</span><span class="op">;</span></span>
+<span id="cb9-49"><a href="#cb9-49"></a>    <span class="co">/* 子要素を縦方向に並べる */</span></span>
+<span id="cb9-50"><a href="#cb9-50"></a>    <span class="kw">align-items</span><span class="ch">:</span> <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb9-51"><a href="#cb9-51"></a>    <span class="co">/* 子要素を中央に配置 */</span></span>
+<span id="cb9-52"><a href="#cb9-52"></a>  }</span>
+<span id="cb9-53"><a href="#cb9-53"></a></span>
+<span id="cb9-54"><a href="#cb9-54"></a>  button {</span>
+<span id="cb9-55"><a href="#cb9-55"></a>    <span class="kw">width</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb9-56"><a href="#cb9-56"></a>    <span class="co">/* ボタンの幅を親コンテナの90%に設定 */</span></span>
+<span id="cb9-57"><a href="#cb9-57"></a>    <span class="kw">max-width</span><span class="ch">:</span> <span class="dv">400</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb9-58"><a href="#cb9-58"></a>    <span class="co">/* ボタンの最大幅を400pxに設定 */</span></span>
+<span id="cb9-59"><a href="#cb9-59"></a>    <span class="kw">margin</span><span class="ch">:</span> <span class="dv">5</span><span class="dt">px</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb9-60"><a href="#cb9-60"></a>    <span class="co">/* 上下のマージンを設定 */</span></span>
+<span id="cb9-61"><a href="#cb9-61"></a>    <span class="kw">padding</span><span class="ch">:</span> <span class="dv">10</span><span class="dt">px</span> <span class="dv">20</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb9-62"><a href="#cb9-62"></a>    <span class="co">/* パディングを設定 */</span></span>
+<span id="cb9-63"><a href="#cb9-63"></a>    <span class="kw">border</span><span class="ch">:</span> <span class="dv">none</span><span class="op">;</span></span>
+<span id="cb9-64"><a href="#cb9-64"></a>    <span class="co">/* ボーダーを消す */</span></span>
+<span id="cb9-65"><a href="#cb9-65"></a>    <span class="kw">background-color</span><span class="ch">:</span> <span class="cn">#007bff</span><span class="op">;</span></span>
+<span id="cb9-66"><a href="#cb9-66"></a>    <span class="co">/* 青色系の背景色 */</span></span>
+<span id="cb9-67"><a href="#cb9-67"></a>    <span class="kw">color</span><span class="ch">:</span> <span class="cn">white</span><span class="op">;</span></span>
+<span id="cb9-68"><a href="#cb9-68"></a>    <span class="co">/* 文字色を白に設定 */</span></span>
+<span id="cb9-69"><a href="#cb9-69"></a>    <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">16</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb9-70"><a href="#cb9-70"></a>    <span class="co">/* フォントサイズを設定 */</span></span>
+<span id="cb9-71"><a href="#cb9-71"></a>    <span class="kw">cursor</span><span class="ch">:</span> <span class="dv">pointer</span><span class="op">;</span></span>
+<span id="cb9-72"><a href="#cb9-72"></a>    <span class="co">/* カーソルをポインタに設定 */</span></span>
+<span id="cb9-73"><a href="#cb9-73"></a>    <span class="kw">transition</span><span class="ch">:</span> <span class="dv">background-color 0.5</span><span class="dt">s</span><span class="op">;</span></span>
+<span id="cb9-74"><a href="#cb9-74"></a>    <span class="co">/* 背景色の変化をアニメーション化 */</span></span>
+<span id="cb9-75"><a href="#cb9-75"></a>    <span class="kw">border-radius</span><span class="ch">:</span> <span class="dv">5</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb9-76"><a href="#cb9-76"></a>    <span class="kw">font-family</span><span class="ch">:</span> <span class="st">&quot;Yusei Magic&quot;</span><span class="op">,</span> <span class="dv">sans-serif</span><span class="op">;</span></span>
+<span id="cb9-77"><a href="#cb9-77"></a>  }</span>
+<span id="cb9-78"><a href="#cb9-78"></a></span>
+<span id="cb9-79"><a href="#cb9-79"></a>  button<span class="in">:hover</span> {</span>
+<span id="cb9-80"><a href="#cb9-80"></a>    <span class="kw">background-color</span><span class="ch">:</span> <span class="cn">#0056b3</span><span class="op">;</span></span>
+<span id="cb9-81"><a href="#cb9-81"></a>    <span class="co">/* ホバー時の背景色を変更 */</span></span>
+<span id="cb9-82"><a href="#cb9-82"></a>  }</span>
+<span id="cb9-83"><a href="#cb9-83"></a></span>
+<span id="cb9-84"><a href="#cb9-84"></a>  input {</span>
+<span id="cb9-85"><a href="#cb9-85"></a>    <span class="kw">width</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb9-86"><a href="#cb9-86"></a>    <span class="kw">max-width</span><span class="ch">:</span> <span class="dv">400</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb9-87"><a href="#cb9-87"></a>    <span class="kw">margin</span><span class="ch">:</span> <span class="dv">10</span><span class="dt">px</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb9-88"><a href="#cb9-88"></a>    <span class="kw">padding</span><span class="ch">:</span> <span class="dv">10</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb9-89"><a href="#cb9-89"></a>    <span class="kw">border</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">#ccc</span><span class="op">;</span></span>
+<span id="cb9-90"><a href="#cb9-90"></a>    <span class="kw">border-radius</span><span class="ch">:</span> <span class="dv">5</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb9-91"><a href="#cb9-91"></a>    <span class="kw">box-sizing</span><span class="ch">:</span> <span class="dv">border-box</span><span class="op">;</span></span>
+<span id="cb9-92"><a href="#cb9-92"></a>  }</span>
+<span id="cb9-93"><a href="#cb9-93"></a></span>
+<span id="cb9-94"><a href="#cb9-94"></a>  <span class="co">/* https://projects.lukehaas.me/css-loaders/ */</span></span>
+<span id="cb9-95"><a href="#cb9-95"></a></span>
+<span id="cb9-96"><a href="#cb9-96"></a>  div<span class="fu">.loader</span> {</span>
+<span id="cb9-97"><a href="#cb9-97"></a>    <span class="kw">display</span><span class="ch">:</span> <span class="dv">none</span><span class="op">;</span></span>
+<span id="cb9-98"><a href="#cb9-98"></a>  }</span>
+<span id="cb9-99"><a href="#cb9-99"></a></span>
+<span id="cb9-100"><a href="#cb9-100"></a>  <span class="fu">.loader</span><span class="op">,</span></span>
+<span id="cb9-101"><a href="#cb9-101"></a>  <span class="fu">.loader</span><span class="in">:before</span><span class="op">,</span></span>
+<span id="cb9-102"><a href="#cb9-102"></a>  <span class="fu">.loader</span><span class="in">:after</span> {</span>
+<span id="cb9-103"><a href="#cb9-103"></a>    <span class="kw">border-radius</span><span class="ch">:</span> <span class="dv">50</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb9-104"><a href="#cb9-104"></a>    <span class="kw">width</span><span class="ch">:</span> <span class="dv">2.5</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb9-105"><a href="#cb9-105"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="dv">2.5</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb9-106"><a href="#cb9-106"></a>    <span class="kw">-webkit-animation-fill-mode</span><span class="ch">:</span> <span class="dv">both</span><span class="op">;</span></span>
+<span id="cb9-107"><a href="#cb9-107"></a>    <span class="kw">animation-fill-mode</span><span class="ch">:</span> <span class="dv">both</span><span class="op">;</span></span>
+<span id="cb9-108"><a href="#cb9-108"></a>    <span class="kw">-webkit-animation</span><span class="ch">:</span> <span class="dv">load7 1.8</span><span class="dt">s</span> <span class="dv">infinite</span> <span class="dv">ease-in-out</span><span class="op">;</span></span>
+<span id="cb9-109"><a href="#cb9-109"></a>    <span class="kw">animation</span><span class="ch">:</span> <span class="dv">load7 1.8</span><span class="dt">s</span> <span class="dv">infinite</span> <span class="dv">ease-in-out</span><span class="op">;</span></span>
+<span id="cb9-110"><a href="#cb9-110"></a>  }</span>
+<span id="cb9-111"><a href="#cb9-111"></a></span>
+<span id="cb9-112"><a href="#cb9-112"></a>  <span class="fu">.loader</span> {</span>
+<span id="cb9-113"><a href="#cb9-113"></a>    <span class="kw">color</span><span class="ch">:</span> <span class="cn">#007bff</span><span class="op">;</span></span>
+<span id="cb9-114"><a href="#cb9-114"></a>    <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">10</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb9-115"><a href="#cb9-115"></a>    <span class="kw">margin</span><span class="ch">:</span> <span class="dv">-20</span><span class="dt">px</span> <span class="bu">auto</span> <span class="dv">40</span><span class="dt">px</span> <span class="bu">auto</span><span class="op">;</span></span>
+<span id="cb9-116"><a href="#cb9-116"></a>    <span class="kw">position</span><span class="ch">:</span> <span class="dv">relative</span><span class="op">;</span></span>
+<span id="cb9-117"><a href="#cb9-117"></a>    <span class="kw">text-indent</span><span class="ch">:</span> <span class="dv">-9999</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb9-118"><a href="#cb9-118"></a>    <span class="kw">-webkit-transform</span><span class="ch">:</span> <span class="fu">translateZ(</span><span class="dv">0</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb9-119"><a href="#cb9-119"></a>    <span class="kw">-ms-transform</span><span class="ch">:</span> <span class="fu">translateZ(</span><span class="dv">0</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb9-120"><a href="#cb9-120"></a>    <span class="kw">transform</span><span class="ch">:</span> <span class="fu">translateZ(</span><span class="dv">0</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb9-121"><a href="#cb9-121"></a>    <span class="kw">-webkit-animation-delay</span><span class="ch">:</span> <span class="dv">-0.16</span><span class="dt">s</span><span class="op">;</span></span>
+<span id="cb9-122"><a href="#cb9-122"></a>    <span class="kw">animation-delay</span><span class="ch">:</span> <span class="dv">-0.16</span><span class="dt">s</span><span class="op">;</span></span>
+<span id="cb9-123"><a href="#cb9-123"></a>  }</span>
+<span id="cb9-124"><a href="#cb9-124"></a></span>
+<span id="cb9-125"><a href="#cb9-125"></a>  <span class="fu">.loader</span><span class="in">:before</span><span class="op">,</span></span>
+<span id="cb9-126"><a href="#cb9-126"></a>  <span class="fu">.loader</span><span class="in">:after</span> {</span>
+<span id="cb9-127"><a href="#cb9-127"></a>    <span class="kw">content</span><span class="ch">:</span> <span class="st">&quot;&quot;</span><span class="op">;</span></span>
+<span id="cb9-128"><a href="#cb9-128"></a>    <span class="kw">position</span><span class="ch">:</span> <span class="dv">absolute</span><span class="op">;</span></span>
+<span id="cb9-129"><a href="#cb9-129"></a>    <span class="kw">top</span><span class="ch">:</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb9-130"><a href="#cb9-130"></a>  }</span>
+<span id="cb9-131"><a href="#cb9-131"></a></span>
+<span id="cb9-132"><a href="#cb9-132"></a>  <span class="fu">.loader</span><span class="in">:before</span> {</span>
+<span id="cb9-133"><a href="#cb9-133"></a>    <span class="kw">left</span><span class="ch">:</span> <span class="dv">-3.5</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb9-134"><a href="#cb9-134"></a>    <span class="kw">-webkit-animation-delay</span><span class="ch">:</span> <span class="dv">-0.32</span><span class="dt">s</span><span class="op">;</span></span>
+<span id="cb9-135"><a href="#cb9-135"></a>    <span class="kw">animation-delay</span><span class="ch">:</span> <span class="dv">-0.32</span><span class="dt">s</span><span class="op">;</span></span>
+<span id="cb9-136"><a href="#cb9-136"></a>  }</span>
+<span id="cb9-137"><a href="#cb9-137"></a></span>
+<span id="cb9-138"><a href="#cb9-138"></a>  <span class="fu">.loader</span><span class="in">:after</span> {</span>
+<span id="cb9-139"><a href="#cb9-139"></a>    <span class="kw">left</span><span class="ch">:</span> <span class="dv">3.5</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb9-140"><a href="#cb9-140"></a>  }</span>
+<span id="cb9-141"><a href="#cb9-141"></a></span>
+<span id="cb9-142"><a href="#cb9-142"></a>  <span class="im">@-webkit-keyframes</span> load7 {</span>
+<span id="cb9-143"><a href="#cb9-143"></a></span>
+<span id="cb9-144"><a href="#cb9-144"></a>    0%<span class="op">,</span></span>
+<span id="cb9-145"><a href="#cb9-145"></a>    80%<span class="op">,</span></span>
+<span id="cb9-146"><a href="#cb9-146"></a>    100% {</span>
+<span id="cb9-147"><a href="#cb9-147"></a>      <span class="kw">box-shadow</span><span class="ch">:</span> <span class="dv">0</span> <span class="dv">2.5</span><span class="dt">em</span> <span class="dv">0</span> <span class="dv">-1.3</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb9-148"><a href="#cb9-148"></a>    }</span>
+<span id="cb9-149"><a href="#cb9-149"></a></span>
+<span id="cb9-150"><a href="#cb9-150"></a>    40% {</span>
+<span id="cb9-151"><a href="#cb9-151"></a>      <span class="kw">box-shadow</span><span class="ch">:</span> <span class="dv">0</span> <span class="dv">2.5</span><span class="dt">em</span> <span class="dv">0</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb9-152"><a href="#cb9-152"></a>    }</span>
+<span id="cb9-153"><a href="#cb9-153"></a>  }</span>
+<span id="cb9-154"><a href="#cb9-154"></a></span>
+<span id="cb9-155"><a href="#cb9-155"></a>  <span class="im">@keyframes</span> load7 {</span>
+<span id="cb9-156"><a href="#cb9-156"></a></span>
+<span id="cb9-157"><a href="#cb9-157"></a>    <span class="dv">0%</span><span class="op">,</span></span>
+<span id="cb9-158"><a href="#cb9-158"></a>    <span class="dv">80%</span><span class="op">,</span></span>
+<span id="cb9-159"><a href="#cb9-159"></a>    <span class="dv">100%</span> {</span>
+<span id="cb9-160"><a href="#cb9-160"></a>      <span class="kw">box-shadow</span><span class="ch">:</span> <span class="dv">0</span> <span class="dv">2.5</span><span class="dt">em</span> <span class="dv">0</span> <span class="dv">-1.3</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb9-161"><a href="#cb9-161"></a>    }</span>
+<span id="cb9-162"><a href="#cb9-162"></a></span>
+<span id="cb9-163"><a href="#cb9-163"></a>    <span class="dv">40%</span> {</span>
+<span id="cb9-164"><a href="#cb9-164"></a>      <span class="kw">box-shadow</span><span class="ch">:</span> <span class="dv">0</span> <span class="dv">2.5</span><span class="dt">em</span> <span class="dv">0</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb9-165"><a href="#cb9-165"></a>    }</span>
+<span id="cb9-166"><a href="#cb9-166"></a>  }</span>
+<span id="cb9-167"><a href="#cb9-167"></a><span class="dt">&lt;/</span><span class="kw">style</span><span class="dt">&gt;</span></span></code></pre></div>
+      <h1 data-number="6" id="報告書作成"><span class="header-section-number">6</span>
+      報告書作成</h1>
+      <!-- ---------------------------------------- -->
+    </main>
+
+    <footer class="markdown-body">
+      <p><a href="https://takeshiwada1980.github.io/Network-Exp-2024/">講義資料のIndexに移動</a></p>
+    </footer>
+
+    <script>
+      window.onload = function () {
+        // ナビゲーション関連
+        let openBtn = document.getElementsByClassName("openbtn")[0];
+        let navPnl = document.getElementById("g-nav");
+        openBtn.onclick = () => {
+          openBtn.classList.toggle("active");
+          navPnl.classList.toggle("panelactive");
+        };
+
+        let items = navPnl.getElementsByTagName("a");
+        Array.from(items).forEach((item) => {
+          item.onclick = () => {
+            openBtn.classList.toggle("active");
+            navPnl.classList.toggle("panelactive");
+          };
+        });
+
+        // マスク処理
+        let maskedSpans = document.getElementsByClassName("masked");
+        Array.from(maskedSpans).forEach((span) => {
+          span.onclick = () => {
+            span.classList.toggle("open");
+          };
+        });
+
+        // data-startfrom 属性の行番号カウンタのリセット
+        document.querySelectorAll("div.sourceCode").forEach(function (div) {
+          var startFrom = div.getAttribute("data-startfrom");
+          if (startFrom != null) {
+            div.style.counterReset = "pg-line " + (startFrom - 1);
+          }
+        });
+
+        // 画像にリンクを付与
+        // let images = document.querySelectorAll("figure img");
+        // Array.from(images).forEach((img) => {
+        //   img.onclick = () => {
+        //     location.href = img.getAttribute("src");
+        //   };
+        // });
+      };
+    </script>
+  </body>
+</html>
